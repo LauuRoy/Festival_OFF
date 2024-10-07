@@ -13,7 +13,7 @@ if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0,
 if ($blnLocal) {
     //Local
     $strHost = 'localhost';
-    $strBD='25_rpni1_OFF';
+    $strBD='Festival_OFF';
     $strUser = 'rpni1_user';
     $strPassword= 'rpni1_mdp';
     error_reporting(E_ALL);
