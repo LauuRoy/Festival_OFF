@@ -1,5 +1,12 @@
 {
   "devDependencies": {
     "normalize.scss": "^0.1.0"
-  }
+  },
+  "scripts": {
+    "sass": "sass --watch ressources/liaisons/scss/styles.scss:public/liaisons/css/styles.css"
+  },
+  "keywords": [
+    "css",
+    "sass"
+  ]
 }
