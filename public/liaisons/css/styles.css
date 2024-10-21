@@ -765,7 +765,124 @@ Effet actif : #f4d07c
   background-color: #358ae0;
 }
 .piedDePage {
-  background-color: #68a8e8;
+  background-color: #132F3D;
+}
+
+.informations__secondaires {
+  background-color: #0F2835;
+}
+
+p,
+a,
+h3,
+.piedDePage__copyRights {
+  color: #FFFFFF;
+}
+
+footer.piedDePage a {
+  text-decoration: none;
+}
+
+footer.piedDePage > nav > ul > li > a {
+  text-decoration: underline;
+}
+
+footer.piedDePage {
+  font-family: "Urbanist", sans-serif;
+}
+
+footer.piedDePage > nav > ul > li > a {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+footer.piedDePage ul > li {
+  line-height: 35px;
+}
+
+.piedDePage__copyRights {
+  font-size: 10px;
+}
+
+footer.piedDePage {
+  text-align: center;
+  padding: 20px;
+}
+
+footer.piedDePage ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer.piedDePage ul > li:last-child {
+  padding-bottom: 20px;
+}
+
+footer.piedDePage nav ul {
+  display: block; /* Par défaut, menu vertical */
+}
+
+.medias > h3 {
+  padding-top: 15px;
+}
+
+.informations__secondaires {
+  border-radius: 30px;
+  padding: 10px;
+  text-align: center; /* Alignement centré pour les petits écrans */
+  display: block;
+}
+
+address > p {
+  font-style: normal;
+}
+
+.sociaux {
+  height: 45px;
+  width: 45px;
+  margin: 5px;
+}
+
+.Festival__OFF_LogoFooter {
+  width: 229px;
+  height: auto;
+}
+
+.piedDePage {
+  background-color: #1a2c39;
+  position: relative;
+  padding-top: 100px;
+}
+
+.piedDePage::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #1a2c39;
+  border-top-left-radius: 50% 100px;
+  border-top-right-radius: 50% 100px;
+}
+
+@media (min-width: 601px) {
+  footer.piedDePage nav ul {
+    display: flex; /* On passe le menu en ligne */
+    justify-content: center; /* Centrer le menu horizontalement */
+  }
+  footer.piedDePage nav ul > li {
+    margin: 0 20px;
+  }
+  footer.piedDePage ul > li ul {
+    display: flex;
+    flex-direction: column;
+  }
+  footer.piedDePage ul > li ul > li {
+    padding: 5px 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
