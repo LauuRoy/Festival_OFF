@@ -46,9 +46,10 @@
                     </p>
                 </address>
         </div>
-        <div class="medias">
-            <h3> Nos médias sociaux </h3>
-            <div class="logo__reseaux">
+        <div class="nous__rejoindre">
+    <div class="medias">
+        <h3> Nos médias sociaux </h3>
+        <div class="logo__reseaux">
             <a href="https://www.facebook.com/?locale=fr_CA">
                 <img class="sociaux" src="../public/liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook">
             </a>
@@ -61,15 +62,14 @@
             <a href="https://www.instagram.com/">
                 <img class="sociaux" src="../public/liaisons/images/svg/mdi--instagram.svg" alt="Instagram">
             </a>
-            </div>
         </div>
-        <!-- <hr width="229px;"> -->
-        <div id="logo__footer">
-            <a href="#">
-            <img class="Festival__OFF_LogoFooter" src="../public/liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF" title="Festival-OFF" /></a>
-        </div>
-             <h5 class="piedDePage__copyRights">© 2009-2024 Festival OFF Tous droits réservés</h5>
     </div>
+    <div id="logo__footer">
+        <a href="#">
+        <img class="Festival__OFF_LogoFooter" src="../public/liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF" title="Festival-OFF" /></a>
+    </div>
+    <h5 class="piedDePage__copyRights">© 2009-2024 Festival OFF Tous droits réservés</h5>
+</div>
 </footer>
 
 <script src="liaisons/js/_menu.js"></script>
