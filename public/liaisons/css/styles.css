@@ -804,6 +804,10 @@ footer.piedDePage ul > li {
   font-size: 10px;
 }
 
+.medias .logo__reseaux a svg path:hover {
+  fill: #EE82A2;
+}
+
 footer.piedDePage {
   text-align: center;
   padding: 20px;
@@ -851,7 +855,7 @@ address > p {
 }
 
 .piedDePage {
-  background-color: #1a2c39;
+  background-color: #132F3D;
   position: relative;
   padding-top: 100px;
 }
@@ -864,7 +868,7 @@ address > p {
   right: 0;
   width: 100%;
   height: 60px;
-  background-color: #1a2c39;
+  background-color: #132F3D;
   border-top-left-radius: 50% 100px;
   border-top-right-radius: 50% 100px;
 }
