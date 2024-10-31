@@ -697,12 +697,12 @@ Effet actif : #f4d07c
 }
 .menu__controle:focus {
   /**
-   * Les styles du navigateur utilisent la règle outline pour définir
-   * l'état focus des éléments interactifs.
-   * Vous pouvez redéfinir cette règle ou remplacer par d'autres styles
-   * mieux adaptés à la direction visuelle.
-   * MAIS il faut souligner l'état focus et le tester au clavier.
-   */
+         * Les styles du navigateur utilisent la règle outline pour définir
+         * l'état focus des éléments interactifs.
+         * Vous pouvez redéfinir cette règle ou remplacer par d'autres styles
+         * mieux adaptés à la direction visuelle.
+         * MAIS il faut souligner l'état focus et le tester au clavier.
+         */
   outline-offset: -5px;
   outline: #012d61 auto 5px;
 }
@@ -732,7 +732,7 @@ Effet actif : #f4d07c
 }
 .menu__lien:focus {
   /*outline: none;
-  border-left: 5px solid #f5ae09;*/
+            border-left: 5px solid #f5ae09;*/
   outline-offset: -5px;
   outline: #f5ae09 auto 5px;
 }
@@ -742,9 +742,9 @@ Effet actif : #f4d07c
 
 /* Si le javascript est activé */
 /* Pour des raisons d'accessibilité, on ne cache le menu mobile
- * que si Javascript est activé. De cette façon, s'il est désactivé,
- * le menu restera tout de même visible à l'utilisateur.
- */
+     * que si Javascript est activé. De cette façon, s'il est désactivé,
+     * le menu restera tout de même visible à l'utilisateur.
+     */
 .js .menu__liste {
   max-height: 100vh;
   overflow: hidden;
