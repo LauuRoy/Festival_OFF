@@ -1,11 +1,13 @@
-.accueil{
-
-  &__titre{
+.accueil {
+  &__titre {
     padding: 20px;
   }
-  &__layout{
+  &__layout {
     display: flex;
     flex-direction: row;
   }
+}
 
+.li {
+  color: black;
 }

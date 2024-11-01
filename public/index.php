@@ -1,8 +1,78 @@
-
 <?php $niveau="./";?>
 <?php include ($niveau . "liaisons/php/config.inc.php");?>
 
-<!DOCTYPE html>
+<?php 
+	//---------------------------------- Variables importantes ----------------------------------//
+	//Gestion des jours et des mois
+	$arrJours = array('Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi');
+	$arrMois = array('Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+//----------------------------------------------------------------------------------------------------//
+	//Requête pour obtenir les trois à 5 derniers articles
+	$intNbArticlesAffichage = rand(3, 5);
+	$strRequeteActualites="SELECT id, titre, auteurs, date_actualite AS date_complete,
+						YEAR(date_actualite) AS annee, 
+						MONTH(date_actualite) AS mois, 
+						DAYOFMONTH(date_actualite) AS jour, 
+						HOUR(date_actualite) AS heure, 
+						MINUTE(date_actualite) AS minute, 
+						article FROM actualites ORDER BY date_actualite DESC LIMIT 0, " . $intNbArticlesAffichage;
+
+
+	$objResultatArticles = $objPdo -> query($strRequeteActualites);
+
+	$arrArticles = array();
+
+	for($i=0; $ligne = $objResultatArticles->fetch(); $i++){
+		$arrArticles[$i]['id'] = $ligne['id'];
+		$arrArticles[$i]['titre'] = $ligne['titre'];
+		$arrArticles[$i]['auteurs'] = $ligne['auteurs'];
+		$arrArticles[$i]['date_complete'] = $ligne['date_complete'];
+		$arrArticles[$i]['annee'] = $ligne['annee'];
+		$arrArticles[$i]['mois'] = $ligne['mois'];
+		$arrArticles[$i]['jour'] = $ligne['jour'];
+		$arrArticles[$i]['heure'] = $ligne['heure'];
+		$arrArticles[$i]['minute'] = $ligne['minute'];
+
+		$arrContenuArticle = explode(' ', $ligne['article']);
+		if(count($arrContenuArticle) > 45){
+			array_splice($arrContenuArticle, 45, count($arrContenuArticle));
+		}
+		$arrArticles[$i]['article_preview'] = implode(' ', $arrContenuArticle);
+	}
+
+	$objResultatArticles->closeCursor();
+
+	//---------------------------------- Suggestions d'artistes ----------------------------------//
+
+    //Sélection aléatoire de 3 à 5 artistes
+    $nbSuggestions = rand(3, 5);
+
+    //Sélection de tous les artistes
+    $strRequeteSuggestion = "SELECT artistes.nom, artistes.id FROM artistes ORDER BY nom";
+
+    //Récupération des artistes 
+    $pdoResultatSuggestion = $objPdo ->query($strRequeteSuggestion);
+    $arrArtistesSuggestionPotentiel = array();
+    for($i = 0; $ligne = $pdoResultatSuggestion->fetch(); $i++){
+        $arrArtistesSuggestionPotentiel[$i]['nom'] = $ligne['nom'];
+        $arrArtistesSuggestionPotentiel[$i]['id'] = $ligne['id'];
+    }
+
+    //Fermeture de la requête
+    $pdoResultatSuggestion->closeCursor();
+
+    //---------------------------------------------------
+    $arrArtistesSuggestion = array();
+    for($i = 0; $i < $nbSuggestions; $i++){
+        //Sélection aléatoire d'un artiste
+        $artisteChoisi = rand(0, count($arrArtistesSuggestionPotentiel) - 1);
+        //Ajout de l'artiste dans le tableau
+        array_push($arrArtistesSuggestion, $arrArtistesSuggestionPotentiel[$artisteChoisi]);
+        //Suppression de l'artiste du tableau potentiel
+        array_splice($arrArtistesSuggestionPotentiel, $artisteChoisi, 1);
+    }
+?>
+	<!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +81,7 @@
 	<meta name="author" content=" Marie-Pierre Plante">
 	<meta charset="utf-8">
 	<link rel="icon" type="image/x-icon" href="">
+	<script src="liaisons/js/_menu.js"></script>
 	<title> O FF - Festival OFF De Québec </title>
 	<?php include ($niveau . "liaisons/fragments/headlinks.inc.html");?>
 </head>
@@ -20,9 +91,11 @@
 	<?php include ($niveau . "liaisons/fragments/entete.inc.php");?>
 
 	<main>
+	<figure class="entete__banniere">
+<img src="liaisons/images/accueil/header_table1440w.jpg" alt="musiciens et dj en fond, festival off de quebec sur le dessus " class="entete__banniere__img">
+</figure>
+		  <!-- SECTION ACTUALITÉE -->
 		<div id="contenu" class="conteneur">
-			<h2>Entête de page</h2>
-
 			<?php
 			$requeteSQL="Select titre from actualites";
 			$objStat=$objPdo -> prepare($requeteSQL);
@@ -31,7 +104,7 @@
 			forEach($arrActualite as $actualite){
 				echo $actualite["titre"];?><BR>
 			<?php } ?>
-
+	             <!-- SECTION ARTICLE -->
 			<section>
 			<div id="contenu" class="conteneur">
 			<section class="article">
@@ -42,6 +115,7 @@
 							<h3><?php echo $article['titre'];?></h3>
 						</header>
 						<p>
+							<!-- PHP preview des artistes-->
 							<?php echo $article['article_preview'];?>
 							<a href="#">...</a>
 						</p>
@@ -54,6 +128,9 @@
 					</article>
 				<?php } ?>
 			</section>
+
+				<!-- SECTION ARTISTES SUGÉRÉS -->
+
 			<section class="suggestions">
 				<h2>Artistes suggérés</h2>
 				<ul>
@@ -68,32 +145,16 @@
 					<?php } ?>
 				</ul>
 		</div>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
-				</article>
-				<article>
-					<header>
-						<h4>Entête d'article</h4>
-					</header>
-					<p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio</p>
-					<footer>
-						<h5>Pied d'article</h5>
-					</footer>
+				
 				</article>
 			</section>
 		</div>
 	
    
-        <p><a href="#" class="bouton">Bouton</a></p>
-		<p><a href="#" class="bouton--inverse">Bouton</a></p>
-     <a href="#" class="hyperlien">lien test!</a>
+       
 	</main>
 	
-	<aside>
-            <h3>Barre latérale</h3>
-            <p>Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus</p>
-	</aside>
+
 	
 	
 	<?php include ($niveau . "liaisons/fragments/piedDePage.inc.php");?>
