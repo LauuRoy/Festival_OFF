@@ -1,6 +1,6 @@
 /**
- * @author Prénom Nom courriel
- * @todo ADAPTER ce fichier selon le projet
+ * @author Marie-Pierre Plante
+ * @todo Projet OFF
 **/
 
 /**
@@ -22,39 +22,51 @@ Effet actif : #f4d07c
 
 /****** Base commune *******/
 
+$bleuheader: #132f3d;
+$bouton: #e96d92;
+$couleurtexteheader: #ffffff;
+.menu__libelle {
+  transform: scale(5);
+}
 /* Bouton du menu */
 .menu {
-  &__controle {
-    background-color: $bleuPale;
-    border: none;
-    padding: 10px;
-    min-width: 40px;
-    width: 80px;
-    @media (min-width: 601px) {
-      display: none;
-    }
-    &:hover,
-    &:active {
-      background-color: $bleuMoyen;
-    }
-    &:focus {
-      /**
-             * Les styles du navigateur utilisent la règle outline pour définir
-             * l'état focus des éléments interactifs.
-             * Vous pouvez redéfinir cette règle ou remplacer par d'autres styles
-             * mieux adaptés à la direction visuelle.
-             * MAIS il faut souligner l'état focus et le tester au clavier.
-             */
-      outline-offset: -5px;
-      outline: $bleuMinuit auto 5px;
-    }
-  }
+  position: absolute;
+  width: 150px;
+  padding: 50px;
+  background-color: $bleuheader;
+  border-radius: 25px;
+  top: 50px;
+  right: 50px;
+  z-index: 100;
 
+  overflow: hidden;
+  &--ferme {
+    display: none;
+  }
+  &__controle {
+    overflow-x: hidden;
+    height: 200px;
+    background-color: transparent;
+    border: none;
+    padding: 50px 50px 0px 0px;
+    min-width: 140px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  display: flex;
+  justify-content: right;
   &__liste {
     margin: 0;
     padding: 0;
     list-style: none;
     max-height: none;
+    display: flex;
+    flex-direction: column;
+
     @media (min-width: 601px) {
       &Item {
         display: inline-block;
@@ -63,8 +75,8 @@ Effet actif : #f4d07c
   }
 
   &__lien {
-    border: 1px solid $bleuMinuit;
-    background-color: $bleuPale;
+    border: 1px solid $bleuheader;
+    background-color: $bleuheader;
     display: block;
     padding: 5px 10px;
     &:link,
@@ -86,6 +98,11 @@ Effet actif : #f4d07c
       border-left: 5px solid #f4d07c;
     }
   }
+}
+
+.menu__liste li,
+.menu__libelle {
+  color: $couleurtexteheader;
 }
 
 /* Si le javascript est activé */
