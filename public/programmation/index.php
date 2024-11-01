@@ -87,10 +87,10 @@ $pdosResultat -> closeCursor();
 
       <li class="">
 
-          <time class="time" datetime="<?php echo $arrEvenement['date_et_heure']?>">
+          <time class="time_prog" datetime="<?php echo $arrEvenement['date_et_heure']?>">
               <?php echo ajouterZero($arrEvenement['heure'])?>h<?php echo ajouterZero($arrEvenement['minute'])?>
           </time>,
-          <a class="lien-artiste" href='<?php echo $niveau;?>artistes/fiches/index.php?id_artiste=<?php echo $arrEvenement['artiste_id'];?>'>
+          <a class="lien-artiste_prog" href='<?php echo $niveau;?>artistes/fiches/index.php?id_artiste=<?php echo $arrEvenement['artiste_id'];?>'>
               <?php echo $arrEvenement['artistes.nom'];?></a>, 
               <?php echo trouverStylesArtiste($arrEvenement['artiste_id']);?>
 			  <img class="img_prog" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
