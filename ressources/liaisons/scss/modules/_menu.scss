@@ -31,8 +31,8 @@ $couleurtexteheader: #ffffff;
 /* Bouton du menu */
 .menu {
   position: absolute;
-  width: 150px;
-  padding: 50px;
+  width: 200px;
+  padding: 50px 50px 50px 0px;
   background-color: $bleuheader;
   border-radius: 25px;
   top: 50px;
@@ -50,15 +50,14 @@ $couleurtexteheader: #ffffff;
     border: none;
     padding: 50px 50px 0px 0px;
     min-width: 140px;
-
+    z-index: 101;
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: right;
   }
-  display: flex;
-  justify-content: right;
+
   &__liste {
     margin: 0;
     padding: 0;
@@ -79,24 +78,9 @@ $couleurtexteheader: #ffffff;
     background-color: $bleuheader;
     display: block;
     padding: 5px 10px;
-    &:link,
-    &:visited {
-      text-decoration: none;
-      color: inherit;
-    }
-    &:hover,
-    &:active {
-      background-color: $bleuMoyen;
-    }
-    &:focus {
-      /*outline: none;
-                border-left: 5px solid #f5ae09;*/
-      outline-offset: -5px;
-      outline: #f5ae09 auto 5px;
-    }
-    &--actif {
-      border-left: 5px solid #f4d07c;
-    }
+    text-decoration: none;
+    font-size: 1.4em;
+    font-weight: 700;
   }
 }
 
