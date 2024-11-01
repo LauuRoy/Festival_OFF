@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 /**
  * @author Prenom Nom <courriel>
@@ -34,6 +35,15 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
+=======
+/* Error: Undefined variable.
+ *    ,
+ * 89 |       background-color: $bleuMoyen;
+ *    |                         ^^^^^^^^^^
+ *    '
+ *   ressources/liaisons/scss/modules/_menu.scss 89:25  @import
+ *   ressources/liaisons/scss/styles.scss 56:9          root stylesheet */
+>>>>>>> d4eb507f7a933681da3ec4d2819664ce0c08f088
 
 /**
  * Remove default margin.
@@ -64,6 +74,7 @@ nav,
 section,
 summary {
   display: block;
+<<<<<<< HEAD
 }
 
 /**
@@ -986,3 +997,10 @@ Effet actif : #f4d07c
 }
 
 /*# sourceMappingURL=styles.css.map */
+=======
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 89 \2502        background-color: $bleuMoyen;\a    \2502                          ^^^^^^^^^^\a    \2575 \a   ressources/liaisons/scss/modules/_menu.scss 89:25  @import\a   ressources/liaisons/scss/styles.scss 56:9          root stylesheet";
+}
+>>>>>>> d4eb507f7a933681da3ec4d2819664ce0c08f088

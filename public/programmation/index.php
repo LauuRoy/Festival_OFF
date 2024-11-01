@@ -11,7 +11,7 @@ Programmation!
 	<meta name="keyword" content="">
 	<meta name="author" content="">
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="liaisons/css/styles.css">
+	<link rel="stylesheet" href="../liaisons/css/styles.css">
 	<title>Programmation OFF</title>
 	<?php include ($niveau . "liaisons/fragments/headlinks.inc.html");?>
 	<?php include ($niveau . "liaisons/php/utilitaires.inc.php");?>
@@ -24,16 +24,16 @@ Programmation!
   DAYOFMONTH(date_et_heure) AS jour
   FROM evenements 
   ORDER BY jour';
-$pdosDateProg = $pdoConnexion->query($strRequetDate);
+$pdosDateProg = $objPdo->query($strRequeteDate);
 
 $arrDateProg = array();
     
 for($cptEnr=0;$ligne=$pdosDateProg->fetch();$cptEnr ++){
 	$arrDateProg[$cptEnr]['jour']=$ligne['jour'];
 }
-	for($intCpt=0;$intCpt < count($arrDateProg); $intCpt++){
-		echo '<button>' . '<a href="../fiche/index.php?jour=' . $arrDateProg[$intCpt]['jour']  '">'  '</button>';
-		}
+	// for($intCpt=0;$intCpt < count($arrDateProg); $intCpt++){
+	// 	echo '<button>' . '<a href="../fiche/index.php?jour=' . $arrDateProg[$intCpt]['jour']  '">'  '</button>';
+	// 	}
 ?>
 <p>date</p>
 <?php
@@ -93,7 +93,7 @@ $pdosResultat -> closeCursor();
           <a class="lien-artiste" href='<?php echo $niveau;?>artistes/fiches/index.php?id_artiste=<?php echo $arrEvenement['artiste_id'];?>'>
               <?php echo $arrEvenement['artistes.nom'];?></a>, 
               <?php echo trouverStylesArtiste($arrEvenement['artiste_id']);?>
-			  <img class="img" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
+			  <img class="img_prog" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
       </li>
 
   <?php } ?>
