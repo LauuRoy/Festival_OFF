@@ -710,13 +710,6 @@ Effet actif : #f4d07c
   overflow-x: hidden;
   background-color: #132f3d;
 }
-.entete__banniere__img {
-  position: relative;
-  max-width: 100%;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-}
 
 .entete__logo {
   background-color: none;
@@ -882,6 +875,14 @@ address > p {
 
 .li {
   color: black;
+}
+
+.entete__banniere__img {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 /**
