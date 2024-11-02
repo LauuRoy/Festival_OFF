@@ -5,7 +5,7 @@ Artistes!
    
  
     // Inclusion du fichier de configuration
-    include($niveau . 'liaisons/scripts/config.inc.php');
+    include($niveau . 'liaisons/php/config.inc.php');
  
     // Récupération des paramètres GET
     if (isset($_GET['id_page'])) {
@@ -141,6 +141,7 @@ Artistes!
     <title>Demo de requête imbriquée</title>
 </head>
 <body>
+<a href="<?php echo $niveau;?>index.php">Retour</a>
     <h1>Liste des artistes</h1>
  
     <main>
@@ -212,5 +213,3 @@ Artistes!
  
     </main>
 </body>
-</html>
- 
