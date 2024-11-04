@@ -9,17 +9,16 @@
 // Permettez-vous d'utiliser un nom de variable plus explicite si la suggestion de name-that-color est trop étrange
 
 /* Couleurs de base */
-$bleuPoudre: #A6D6F9;
-$rose: #E96D92;
-$violet: #6F71A1;
-$vert: #132F3D;
-$roseSurvol: #EE82A2;
-$roseEnfonce: #CF5C7E;
+$bleuPoudre: #a6d6f9;
+$rose: #e96d92;
+$violet: #6f71a1;
+$vert: #132f3d;
+$roseSurvol: #ee82a2;
+$roseEnfonce: #cf5c7e;
 
-$bleuPoudreTransparent : transparentize($bleuPoudre, 0.40);
+$bleuPoudreTransparent: transparentize($bleuPoudre, 0.4);
 
 /* Autres couleurs */
 
-
 /** Points de rupture **/
-$desktop : 601px;
+$desktop: 601px;
