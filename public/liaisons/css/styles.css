@@ -29,6 +29,9 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
@@ -408,13 +411,105 @@ th {
 /**** UTILITAIRES ****************************/
 /** Variables **/
 /**
-* @author Prenom Nom courriel
+* @author megane boulianne
 */
 /** Polices de caractères **/
 /** Palette de couleurs **/
 /* Couleurs de base */
 /* Autres couleurs */
 /** Points de rupture **/
+h1,
+.h1 {
+  /* = 32px */
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 3.2rem;
+}
+
+@media (min-width: 600px) {
+  h1,
+  .h1 {
+    /* = 40px */
+    font-family: "Climate Crisis", sans-serif;
+    font-size: 4rem;
+  }
+}
+@media (min-width: 800px) {
+  h1,
+  .h1 {
+    /* = 48px */
+    font-family: "Climate Crisis", sans-serif;
+    font-size: 7rem;
+  }
+}
+h2,
+.h2 {
+  /* = 24px */
+  font-family: "urbanist", sans-serif;
+  font-size: 3.2rem;
+}
+
+@media (min-width: 600px) {
+  h2,
+  .h2 {
+    /* = 32px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3.2rem;
+  }
+}
+@media (min-width: 800px) {
+  h2,
+  .h2 {
+    /* = 36px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3.6rem;
+  }
+}
+h3,
+.h3 {
+  /* = 18px */
+  font-family: "urbanist", sans-serif;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 600px) {
+  h3,
+  .h3 {
+    /* = 24px */
+    font-family: "urbanist", sans-serif;
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 800px) {
+  h3,
+  .h3 {
+    /* = 30px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3rem;
+  }
+}
+h4,
+.h4 {
+  /* = 16px */
+  font-family: "urbanist", sans-serif;
+  font-size: 1.6rem;
+}
+
+@media (min-width: 600px) {
+  h4,
+  .h4 {
+    /* = 18px */
+    font-family: "urbanist", sans-serif;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 800px) {
+  h4,
+  .h4 {
+    /* = 22px */
+    font-family: "urbanist", sans-serif;
+    font-size: 2.2rem;
+  }
+}
 /** Mixins **/
 /**
 * @author Ève Février - efevrier@cegep-ste-foy.qc.ca
@@ -503,7 +598,7 @@ h1--desktop,
 }
 h1--desktop:after,
 .titreNiveau1--desktop:after {
-  background-color: #a6d6f9;
+  background-color: #9FDFF3;
   content: "";
   display: inline-block;
   width: 150px;
@@ -922,31 +1017,88 @@ address > p {
 /**
 * @author Boulianne megane
 */
+.filtre_date {
+  padding: 1.2em;
+  background-color: #e96d92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  color: white;
+  border: 4px solid #aa506b;
+}
+
+.filtre_date :hover {
+  background-color: #ee82a2;
+}
+
+.conteneur_filtre_date {
+  padding: 1em;
+}
+
+@media (min-width: 601px) {
+  .conteneur_filtre_date {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h1_prog {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h2_prog_date {
+    text-align: center;
+  }
+}
+.nom_scene_prog {
+  color: black;
+  padding-top: 0.5em;
+  text-align: left;
+}
+
+.h4_heure-prog {
+  text-align: left;
+}
+
 .img_prog {
   border-radius: 10px;
-  background-color: black;
 }
 
 .nom_style-prog {
-  background-color: #A6D6F9;
+  background-color: #9FDFF3;
+  padding-bottom: 2em;
+  border-radius: 1em;
+  text-align: center;
+  width: 320px;
+}
+
+.groupe_heure_nom__style {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.style_artiste-prog {
+  color: black;
 }
 
 .lien-artistes_prog {
-  background-color: aqua;
+  color: #e96d92;
 }
 
 li {
   list-style: none;
 }
 
-.lien-artistes_prog {
-  color: #E96D92;
+.main_programmation {
+  margin: 0.5em;
+  padding-bottom: 6em;
 }
 
-.nom_scene_prog {
-  color: #E96D92;
+@media (min-width: 601px) {
+  .main_programmation {
+    background-image: url(../../../../public/liaisons/images/FORMES-prog.png);
+  }
 }
-
 .accueil__titre {
   padding: 20px;
 }
