@@ -862,7 +862,28 @@ address > p {
 * @author Boulianne megane
 */
 .img_prog {
-  border-radius: 130px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+.nom_style-prog {
+  background-color: #A6D6F9;
+}
+
+.lien-artistes_prog {
+  background-color: aqua;
+}
+
+li {
+  list-style: none;
+}
+
+.lien-artistes_prog {
+  color: #E96D92;
+}
+
+.nom_scene_prog {
+  color: #E96D92;
 }
 
 .accueil__titre {

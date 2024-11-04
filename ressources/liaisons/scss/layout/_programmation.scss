@@ -3,5 +3,24 @@
 */
 
 .img_prog{
-    border-radius: 130px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.nom_style-prog{
+    background-color: $bleuPoudre;
+}
+.lien-artistes_prog{
+    background-color: aqua;
+}
+
+li{
+    list-style: none;
+}
+.lien-artistes_prog{
+    color: $rose;
+}
+
+.nom_scene_prog{
+    color: $rose;
 }

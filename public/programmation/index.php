@@ -18,26 +18,55 @@ Programmation!
 </head>
 <a href="<?php echo $niveau;?>index.php">Retour</a>
 <main>
-<h1 class="h1">Programmation</h1>
+<h1 class="h1_prog">Programmation</h1>
 <?php 
- $strRequeteDate = 'SELECT date_et_heure,
-  DAYOFMONTH(date_et_heure) AS jour
-  FROM evenements 
-  ORDER BY jour';
-$pdosDateProg = $objPdo->query($strRequeteDate);
 
-$arrDateProg = array();
-    
-for($cptEnr=0;$ligne=$pdosDateProg->fetch();$cptEnr ++){
-	$arrDateProg[$cptEnr]['jour']=$ligne['jour'];
+if(isset($_GET['id'])==true){
+    $strIdDate = $_GET ['id'];
 }
-	// for($intCpt=0;$intCpt < count($arrDateProg); $intCpt++){
-	// 	echo '<button>' . '<a href="../fiche/index.php?jour=' . $arrDateProg[$intCpt]['jour']  '">'  '</button>';
-	// 	}
-?>
-<p>date</p>
-<?php
+else{
+    $strIdDate = 0;
+}
 
+if($strIdDate == 0){
+    $strRequeteDate = 'SELECT DISTINCT  DAYOFMONTH(date_et_heure) AS jour,  MONTH(date_et_heure) AS mois  FROM evenements ORDER BY jour';
+}
+else{
+    $strRequeteDate = 'SELECT DISTINCT  DAYOFMONTH(date_et_heure) AS jour,  MONTH(date_et_heure) AS mois FROM evenements WHERE DAYOFMONTH(date_et_heure) =' .$strIdDate . ' ORDER BY jour';
+}
+ 
+ $pdosResultatDate = $objPdo->query($strRequeteDate);
+ 
+ $arrDatesProg = array();
+ 
+ for($cptEnrDate=0;$ligneDatesProg=$pdosResultatDate->fetch(PDO::FETCH_ASSOC);$cptEnrDate ++){
+    $arrDatesProg[$cptEnrDate]['id']=$cptEnrDate;
+	$arrDatesProg[$cptEnrDate]['jour']=$ligneDatesProg['jour'];
+    $arrDatesProg[$cptEnrDate]['mois']=$ligneDatesProg['mois'];
+}
+ $pdosResultatDate->closeCursor();
+ ?>
+ <p class="filtre_date">
+ <?php 
+ foreach ($arrDatesProg as $date) { 
+    echo '<a href="../programmation/index.php?id=' . $date['jour'] . '">' . $date['jour'] . '</a> ';
+} 
+ ?>
+ </p>
+ 
+<?php
+if ($strIdDate != 0) {
+    $requeteSQL = 'SELECT date_et_heure, lieu_id, artiste_id, artistes.nom, lieux.nom,
+    HOUR(date_et_heure) AS heure,
+    MINUTE(date_et_heure) AS minute,
+    MONTH(date_et_heure) AS mois,
+    DAYOFMONTH(date_et_heure) AS jour
+    FROM evenements 
+    INNER JOIN artistes ON evenements.artiste_id = artistes.id 
+    INNER JOIN lieux ON lieux.id = evenements.lieu_id
+    WHERE DAYOFMONTH(date_et_heure) = ' . $strIdDate . '
+    ORDER BY lieux.nom';
+} else {
 $requeteSQL=' SELECT date_et_heure,lieu_id, artiste_id, artistes.nom, lieux.nom,
  HOUR(date_et_heure) AS heure,
  MINUTE(date_et_heure) AS minute,
@@ -46,6 +75,7 @@ $requeteSQL=' SELECT date_et_heure,lieu_id, artiste_id, artistes.nom, lieux.nom,
  FROM evenements INNER JOIN artistes ON evenements.artiste_id = artistes.id INNER JOIN lieux ON lieux.id = evenements.lieu_id
  WHERE DAYOFMONTH(date_et_heure)=8
  ORDER BY lieux.nom ';
+}
 
 $pdosResultat= $objPdo->prepare($requeteSQL);
 $pdosResultat -> execute(); 
@@ -76,7 +106,7 @@ $pdosResultat -> closeCursor();
               </ul></li>
           <?php } ?>
 
-          <li><h3 class="nom_scene">
+          <li><h3 class="nom_scene_prog">
 
               <?php echo $arrEvenement['lieux.nom'];
               $lieuActuel=$arrEvenement['lieux.nom'];?>
@@ -85,22 +115,28 @@ $pdosResultat -> closeCursor();
 
       <?php } ?>
 
-      <li class="">
-
+      <li class="groupe_heure_nom__style">
+            <h4 class="h4_heure-prog">
           <time class="time_prog" datetime="<?php echo $arrEvenement['date_et_heure']?>">
               <?php echo ajouterZero($arrEvenement['heure'])?>h<?php echo ajouterZero($arrEvenement['minute'])?>
-          </time>,
-          <a class="lien-artiste_prog" href='<?php echo $niveau;?>artistes/fiches/index.php?id_artiste=<?php echo $arrEvenement['artiste_id'];?>'>
-              <?php echo $arrEvenement['artistes.nom'];?></a>, 
+          </time>
+            </h4>
+       <div class="nom_style-prog">
+          <h5 class="h5_artiste-prog">
+          <a class="lien-artistes_prog" href='<?php echo $niveau;?>artistes/fiches/index.php?id_artiste=<?php echo $arrEvenement['artiste_id'];?>'>
+              <?php echo $arrEvenement['artistes.nom'];?></a> 
+          </h5>
+          <p class="style_artiste-prog" >
               <?php echo trouverStylesArtiste($arrEvenement['artiste_id']);?>
-			  <img class="img_prog" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
+             </p> 
+              <img class="img_prog" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
+              </div>
       </li>
 
   <?php } ?>
 
-</ul>
+
 </li>
 </ul>
-          
 </body>
 </main>
