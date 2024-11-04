@@ -503,7 +503,7 @@ h1--desktop,
 }
 h1--desktop:after,
 .titreNiveau1--desktop:after {
-  background-color: #A6D6F9;
+  background-color: #a6d6f9;
   content: "";
   display: inline-block;
   width: 150px;
@@ -576,7 +576,7 @@ h3--desktop,
   text-decoration: none;
   border-radius: 18px;
   padding: 0.5em 1em;
-  background-color: #132F3D;
+  background-color: #132f3d;
   color: black;
 }
 .bouton:after {
@@ -709,25 +709,86 @@ Effet actif : #f4d07c
 .entete {
   overflow-x: hidden;
   background-color: #132f3d;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.entete__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.entete__bouton {
+  margin-top: 50px;
+  padding: 25px 20px;
+  border-radius: 10px;
+  background-color: #e96d92;
+  color: #ffffff;
+  font-size: 3rem;
+  width: auto;
+  text-align: center;
 }
 
-.entete__logo {
-  background-color: none;
+.logo__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.logo__header__entete__logo {
+  min-width: 40px;
+  max-width: 60px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
+@media (min-width: 630px) {
+  .entete {
+    overflow-x: hidden;
+    overflow: hidden;
+    background-color: #132f3d;
+    height: 150px;
+  }
+  .entete__bouton {
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 1em;
+    background-color: #e96d92;
+    color: #ffffff;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  .logo__header {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  .logo__header__entete__logo {
+    position: relative;
+    background-color: none;
+    min-width: 0%;
+    max-width: 80px;
+    cursor: pointer;
+  }
+}
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
 }
 
 .informations__secondaires {
-  background-color: #0F2835;
+  background-color: #0f2835;
 }
 
 p,
 a,
 h3,
 .piedDePage__copyRights {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 footer.piedDePage a {
@@ -756,7 +817,7 @@ footer.piedDePage ul > li {
 }
 
 .medias .logo__reseaux a svg path:hover {
-  fill: #EE82A2;
+  fill: #ee82a2;
 }
 
 footer.piedDePage {
@@ -802,11 +863,11 @@ address > p {
 .Festival__OFF_LogoFooter {
   width: 229px;
   height: auto;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #ffffff;
 }
 
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
   position: relative;
   padding-top: 100px;
 }
@@ -819,7 +880,7 @@ address > p {
   right: 0;
   width: 100%;
   height: 60px;
-  background-color: #132F3D;
+  background-color: #132f3d;
   border-top-left-radius: 50% 100px;
   border-top-right-radius: 50% 100px;
 }
@@ -894,18 +955,212 @@ li {
   flex-direction: row;
 }
 
-.li {
+/* ---------------- BANNIERE ----------------*/
+.article_preview {
   color: black;
 }
 
-.entete__banniere__img {
-  position: relative;
-  max-width: 100%;
-  overflow-x: hidden;
+.accueil__banniere {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
+.accueil__banniere__mobile {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.accueil__banniere__deskop {
+  display: none;
+}
+
+@media (min-width: 630px) {
+  .accueil__banniere__mobile {
+    display: none;
+  }
+  .accueil__banniere__deskop {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+/* ---------------- ACTUALITÉE  ----------------*/
+/* General container for articles */
+#contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  /* Heading aligned to the left and positioned on top */
+}
+#contenu .article_h2 {
+  align-self: flex-start; /* Align the heading to the left */
+  font-size: 2.2rem; /* Slightly larger font size */
+  color: #333;
+  margin-bottom: 1rem;
+  margin-left: 10px; /* Small left margin */
+}
+
+/* Wrapper for articles to control visibility and overflow */
+.article {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  width: 100%; /* Full width for the article section */
+  /* Individual article styles */
+  /* Footer section without any hover background change */
+}
+.article article {
+  scroll-snap-align: start;
+  flex: 0 0 100%; /* Fill the width of mobile screen */
+  max-width: 630px; /* Max width for larger screens */
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #add8e6; /* Light blue background */
+  transition: transform 0.3s ease;
+  margin-left: 10px; /* Left margin for each article */
+  /* Hover effect for slight scaling */
+  /* Bottom half for article preview */
+  /* Header section */
+  /* Apply a slightly darker blue background on hover for article_preview and header only */
+}
+.article article:hover {
+  transform: scale(1.02);
+}
+.article article .article_preview {
+  padding: 1rem;
+  background-color: transparent; /* No background initially */
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.9; /* Set base opacity for subtle effect */
+  text-align: left; /* Align text to the left */
+  margin-left: 10px; /* Small left margin for text */
+  /* Text styling */
+}
+.article article .article_preview p {
+  color: #333;
+  font-size: 1.1rem; /* Slightly larger font size */
+  margin: 0;
+}
+.article article .article_preview a {
+  color: #0074d9;
+  text-decoration: none;
+}
+.article article header {
+  padding: 1rem;
+  background-color: transparent; /* No background initially */
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.9; /* Set base opacity for subtle effect */
+  text-align: left; /* Align text to the left */
+  margin-left: 10px; /* Small left margin for text */
+}
+.article article header .article_h3 {
+  font-size: 1.7rem; /* Slightly larger font size */
+  color: #333;
+  margin: 0;
+}
+.article article:hover .article_preview,
+.article article:hover header {
+  background-color: #92c1dc; /* Darker blue for hover effect */
+  opacity: 1;
+  transform: scale(1.02); /* Slightly scale up for effect */
+}
+.article footer {
+  padding: 1rem;
+  background-color: transparent; /* No background color change */
+  color: #333;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 630px) {
+  .article {
+    gap: 0.5rem; /* Reduce gap between articles */
+  }
+  .article article {
+    flex: 0 0 100%; /* Take up the full width */
+    max-width: 100%; /* Ensure full width on small screens */
+  }
+}
+/* ---------------- ARTISTES ----------------*/
+/* General container for suggestions */
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100%; /* Ensure full width for the suggestions section */
+  box-sizing: border-box; /* Include padding in width calculation */
+  /* Wrapper for artist list to control visibility and overflow */
+}
+.suggestions .artiste_h2 {
+  font-size: 2rem;
+  color: black; /* Keeping heading color as black */
+  margin-bottom: 1rem;
+  align-self: flex-start; /* Align the heading to the left */
+  margin-left: 10px; /* Added left margin to match article headings */
+}
+.suggestions .artiste_ul {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  width: 100%; /* Full width for the suggestions section */
+  box-sizing: border-box; /* Include padding in width calculation */
+  /* Individual artist item styles */
+}
+.suggestions .artiste_ul .artiste_fiche {
+  scroll-snap-align: start;
+  flex: 0 0 150px; /* Width for artist items */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  background-color: #add8e6; /* Light pastel blue for artist items */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  /* Increased height for artist items */
+  height: 250px; /* Set a fixed height for items */
+  /* Hover effect for slight scaling */
+  /* Artist name link styling */
+}
+.suggestions .artiste_ul .artiste_fiche:hover {
+  transform: scale(1.02);
+}
+.suggestions .artiste_ul .artiste_fiche a {
+  color: black; /* Font color set to black */
+  text-decoration: none;
+  padding: 0.5rem;
+  text-align: center;
+  flex-grow: 1; /* Allows the name section to grow and fill space */
+  /* Image styling */
+}
+.suggestions .artiste_ul .artiste_fiche a .artiste_imagefiche {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 630px) {
+  .suggestions .artiste_ul {
+    gap: 0.5rem; /* Reduce gap between artist items */
+  }
+  .suggestions .artiste_ul .artiste_fiche {
+    flex: 0 0 100%; /* Take up the full width */
+    max-width: 100%; /* Ensure full width on small screens */
+  }
+}
 /**
  * @author Marie-Pierre Plante
  * @todo Projet OFF

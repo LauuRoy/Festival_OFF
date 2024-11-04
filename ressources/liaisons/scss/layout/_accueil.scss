@@ -8,14 +8,235 @@
   }
 }
 
-.li {
+/* ---------------- BANNIERE ----------------*/
+
+.article_preview {
   color: black;
 }
 
-.entete__banniere__img {
-  position: relative;
-  max-width: 100%;
-  overflow-x: hidden;
+.accueil__banniere {
   margin: 0;
   padding: 0;
+  position: relative;
+}
+.accueil__banniere__mobile {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.accueil__banniere__deskop {
+  display: none;
+}
+
+@media (min-width: 630px) {
+  .accueil__banniere__mobile {
+    display: none;
+  }
+
+  .accueil__banniere__deskop {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ---------------- ACTUALITÉE  ----------------*/
+/* General container for articles */
+#contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+  /* Heading aligned to the left and positioned on top */
+  .article_h2 {
+    align-self: flex-start; /* Align the heading to the left */
+    font-size: 2.2rem; /* Slightly larger font size */
+    color: #333;
+    margin-bottom: 1rem;
+    margin-left: 10px; /* Small left margin */
+  }
+}
+
+/* Wrapper for articles to control visibility and overflow */
+.article {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  width: 100%; /* Full width for the article section */
+
+  /* Individual article styles */
+  article {
+    scroll-snap-align: start;
+    flex: 0 0 100%; /* Fill the width of mobile screen */
+    max-width: 630px; /* Max width for larger screens */
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #add8e6; /* Light blue background */
+    transition: transform 0.3s ease;
+    margin-left: 10px; /* Left margin for each article */
+
+    /* Hover effect for slight scaling */
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    /* Bottom half for article preview */
+    .article_preview {
+      padding: 1rem;
+      background-color: transparent; /* No background initially */
+      transition: background-color 0.4s ease, opacity 0.4s ease,
+        transform 0.4s ease;
+      opacity: 0.9; /* Set base opacity for subtle effect */
+      text-align: left; /* Align text to the left */
+      margin-left: 10px; /* Small left margin for text */
+
+      /* Text styling */
+      p {
+        color: #333;
+        font-size: 1.1rem; /* Slightly larger font size */
+        margin: 0;
+      }
+
+      a {
+        color: #0074d9;
+        text-decoration: none;
+      }
+    }
+
+    /* Header section */
+    header {
+      padding: 1rem;
+      background-color: transparent; /* No background initially */
+      transition: background-color 0.4s ease, opacity 0.4s ease,
+        transform 0.4s ease;
+      opacity: 0.9; /* Set base opacity for subtle effect */
+      text-align: left; /* Align text to the left */
+      margin-left: 10px; /* Small left margin for text */
+
+      .article_h3 {
+        font-size: 1.7rem; /* Slightly larger font size */
+        color: #333;
+        margin: 0;
+      }
+    }
+
+    /* Apply a slightly darker blue background on hover for article_preview and header only */
+    &:hover {
+      .article_preview,
+      header {
+        background-color: #92c1dc; /* Darker blue for hover effect */
+        opacity: 1;
+        transform: scale(1.02); /* Slightly scale up for effect */
+      }
+    }
+  }
+
+  /* Footer section without any hover background change */
+  footer {
+    padding: 1rem;
+    background-color: transparent; /* No background color change */
+    color: #333;
+  }
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 630px) {
+  .article {
+    gap: 0.5rem; /* Reduce gap between articles */
+
+    article {
+      flex: 0 0 100%; /* Take up the full width */
+      max-width: 100%; /* Ensure full width on small screens */
+    }
+  }
+}
+
+/* ---------------- ARTISTES ----------------*/
+/* General container for suggestions */
+.suggestions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  width: 100%; /* Ensure full width for the suggestions section */
+  box-sizing: border-box; /* Include padding in width calculation */
+
+  .artiste_h2 {
+    font-size: 2rem;
+    color: black; /* Keeping heading color as black */
+    margin-bottom: 1rem;
+    align-self: flex-start; /* Align the heading to the left */
+    margin-left: 10px; /* Added left margin to match article headings */
+  }
+
+  /* Wrapper for artist list to control visibility and overflow */
+  .artiste_ul {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    width: 100%; /* Full width for the suggestions section */
+    box-sizing: border-box; /* Include padding in width calculation */
+
+    /* Individual artist item styles */
+    .artiste_fiche {
+      scroll-snap-align: start;
+      flex: 0 0 150px; /* Width for artist items */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content horizontally */
+      background-color: #add8e6; /* Light pastel blue for artist items */
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      /* Increased height for artist items */
+      height: 250px; /* Set a fixed height for items */
+
+      /* Hover effect for slight scaling */
+      &:hover {
+        transform: scale(1.02);
+      }
+
+      /* Artist name link styling */
+      a {
+        color: black; /* Font color set to black */
+        text-decoration: none;
+        padding: 0.5rem;
+        text-align: center;
+        flex-grow: 1; /* Allows the name section to grow and fill space */
+
+        /* Image styling */
+        .artiste_imagefiche {
+          width: 100%;
+          height: auto; /* Maintain aspect ratio */
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 630px) {
+  .suggestions .artiste_ul {
+    gap: 0.5rem; /* Reduce gap between artist items */
+
+    .artiste_fiche {
+      flex: 0 0 100%; /* Take up the full width */
+      max-width: 100%; /* Ensure full width on small screens */
+    }
+  }
 }
