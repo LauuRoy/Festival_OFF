@@ -1,10 +1,12 @@
-$bleuEntete:#358ae0;
+$bleuheader: #132f3d;
+$bouton: #e96d92;
+$couleurtexteheader: #ffffff;
 
-.entete{
+.entete {
+  overflow-x: hidden;
+  background-color: $bleuheader;
+}
 
-  background-color: $bleuEntete;
-  &__titre{
-
-  }
-
+.entete__logo {
+  background-color: none;
 }

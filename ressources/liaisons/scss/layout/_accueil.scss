@@ -1,11 +1,21 @@
-.accueil{
-
-  &__titre{
+.accueil {
+  &__titre {
     padding: 20px;
   }
-  &__layout{
+  &__layout {
     display: flex;
     flex-direction: row;
   }
+}
 
+.li {
+  color: black;
+}
+
+.entete__banniere__img {
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }

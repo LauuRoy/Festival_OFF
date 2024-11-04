@@ -9,13 +9,14 @@
 // Permettez-vous d'utiliser un nom de variable plus explicite si la suggestion de name-that-color est trop étrange
 
 /* Couleurs de base */
-$bleuMoyen: #358ae0;
-$bleuPale: #68a8e8;
-$vertLime: #bbd531;
-$bleuMinuit: #012d61;
-$bleuMarin: #2678B5;
+$bleuPoudre: #A6D6F9;
+$rose: #E96D92;
+$violet: #6F71A1;
+$vert: #132F3D;
+$roseSurvol: #EE82A2;
+$roseEnfonce: #CF5C7E;
 
-$bleuMoyenTransparent : transparentize($bleuMoyen, 0.50);
+$bleuPoudreTransparent : transparentize($bleuPoudre, 0.40);
 
 /* Autres couleurs */
 
