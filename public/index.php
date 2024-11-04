@@ -87,41 +87,36 @@
 </head>
 
 <body>
-
 	<?php include ($niveau . "liaisons/fragments/entete.inc.php");?>
-
 	<main>
-	<figure class="entete__banniere">
-<img src="liaisons/images/accueil/header_table1440w.jpg" alt="musiciens et dj en fond, festival off de quebec sur le dessus " class="entete__banniere__img">
-</figure>
-		  <!-- SECTION ACTUALITÉE -->
-		<div id="contenu" class="conteneur">
-			<?php
-			$requeteSQL="Select titre from actualites";
-			$objStat=$objPdo -> prepare($requeteSQL);
-			$objStat -> execute();
-			$arrActualite=$objStat -> fetchAll();
-			forEach($arrActualite as $actualite){
-				echo $actualite["titre"];?><BR>
-			<?php } ?>
-	             <!-- SECTION ARTICLE -->
-			<section>
+     	<figure class="accueil__banniere">
+
+			<img  class="accueil__banniere__deskop" src="liaisons/images/accueil/header_table1440w.jpg" 
+                 alt="musiciens et dj en fond, festival off de quebec">
+
+			<img class="accueil__banniere__mobile" src="liaisons/images/accueil/header_mobile340w.jpg" 
+                 alt="dj en fond, festival off de quebec" >
+		</figure>
+
+
+		       <!-- SECTION ARTICLE -->
+		   <section>
 			<div id="contenu" class="conteneur">
+			<h2 class="article_h2">ARTICLES</h2>
 			<section class="article">
-				<h2>Articles</h2>
 				<?php foreach($arrArticles as $article){ ?>
 					<article>
 						<header>
-							<h3><?php echo $article['titre'];?></h3>
+							<h3 class="article_h3" ><?php echo $article['titre'];?></h3>
 						</header>
-						<p>
+						<p class="article_preview">
 							<!-- PHP preview des artistes-->
 							<?php echo $article['article_preview'];?>
 							<a href="#">...</a>
 						</p>
 						<footer>
-							<p> <?php echo $article['auteurs']; ?></p>
-							<time datetime="<?php echo $article['date_complete'];?>">
+							<p class="article_preview"> <?php echo $article['auteurs']; ?></p>
+							<time class="article_datetime" <?php echo $article['date_complete'];?>">
 								<?php echo "Le " . $article['jour'] . " " . $arrMois[$article['mois'] - 1] . " " . $article['annee'] . " à " . $article['heure'] . "h" . $article['minute'];?>
 							</time>
 						</footer>
@@ -132,25 +127,34 @@
 				<!-- SECTION ARTISTES SUGÉRÉS -->
 
 			<section class="suggestions">
-				<h2>Artistes suggérés</h2>
-				<ul>
+				<h2 class="artiste_h2">Artistes suggérés</h2>
+				<ul class="artiste_ul">
 					<?php foreach($arrArtistesSuggestion as $artiste){ ?>
-						<li>
+						<li class="artiste_fiche">
 							<a href="<?php echo $niveau ?>artistes/fiches/index.php?id_artiste=<?php echo $artiste['id']; ?>">
 								<?php echo $artiste['nom']; ?>
 								<!-- Sources des images pas encore définies par l'équipe. Vérification sur le alt -->
-								<img src="#" alt="<?php echo "ID artiste : " . $artiste['id'] ?>">
+							<img class="artiste_imagefiche" src="<?php echo $niveau;?>liaisons/images/programmation/<?php echo $arrEvenement["artiste_id"]?>_0_rect-w320.jpg" alt="<?php echo $arrEvenement["artiste_id"]?>">
 							</a>
 						</li>
 					<?php } ?>
 				</ul>
-		</div>
-				
-				</article>
+	         </div>	
 			</section>
+
+
+		  <!-- SECTION ACTUALITÉE -->
+		<div id="contenu" class="conteneur">
+			<?php
+			$requeteSQL="Select titre from actualites";
+			$objStat=$objPdo -> prepare($requeteSQL);
+			$objStat -> execute();
+			$arrActualite=$objStat -> fetchAll();
+			forEach($arrActualite as $actualite){
+				echo $actualite["titre"];?><BR>
+			<?php } ?>
 		</div>
-	
-   
+
        
 	</main>
 	

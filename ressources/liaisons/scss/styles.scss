@@ -37,8 +37,6 @@
 /** Mixins **/
 @import "utilitaires/mixins";
 
-
-
 /****** BASE ********************************/
 
 /** Typographie **/
@@ -53,13 +51,12 @@
 /** Grille 12 colones **/
 
 /****** MODULES *****************************/
-@import "modules/menu"; 
+@import "modules/menu";
 
 /****** LAYOUT *****************************/
 
 @import "layout/entete";
 @import "layout/piedDePage";
-
 
 // page programmation
 

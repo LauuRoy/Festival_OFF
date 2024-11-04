@@ -1,15 +1,14 @@
-$bleupieddepage:#132F3D;
-$bleuinformationsecondaires: #0F2835;
-$couleurtextefooter: #FFFFFF;
+$bleupieddepage: #132f3d;
+$bleuinformationsecondaires: #0f2835;
+$couleurtextefooter: #ffffff;
 
 //COULEURS
 //Couleurs de fond du footer
-.piedDePage{
-  background-color: $bleupieddepage; 
-  
+.piedDePage {
+  background-color: $bleupieddepage;
 }
 
-.informations__secondaires{
+.informations__secondaires {
   background-color: $bleuinformationsecondaires;
 }
 
@@ -17,10 +16,9 @@ $couleurtextefooter: #FFFFFF;
 p,
 a,
 h3,
-.piedDePage__copyRights{
+.piedDePage__copyRights {
   color: $couleurtextefooter;
 }
-
 
 //LIENS ET TEXTE
 // Enlever les décorations
@@ -28,39 +26,35 @@ footer.piedDePage a {
   text-decoration: none;
 }
 footer.piedDePage > nav > ul > li > a {
-  text-decoration: underline; 
-  
+  text-decoration: underline;
 }
 
 //Grosseur du texte + font-family
 footer.piedDePage {
-font-family:"Urbanist", sans-serif;
+  font-family: "Urbanist", sans-serif;
 }
 
 footer.piedDePage > nav > ul > li > a {
   font-size: 20px;
-  font-weight: 600;  
+  font-weight: 600;
 }
 
-footer.piedDePage ul > li{
-line-height: 35px;
+footer.piedDePage ul > li {
+  line-height: 35px;
 }
 
-.piedDePage__copyRights{
+.piedDePage__copyRights {
   font-size: 10px;
 }
 
 //effet hover
 .medias .logo__reseaux a svg path:hover {
-  fill: #EE82A2;
-} 
-
-
-
+  fill: #ee82a2;
+}
 
 //POSITIONNEMENT MENU NAV
 footer.piedDePage {
-  text-align: center; 
+  text-align: center;
   padding: 20px;
 }
 
@@ -79,17 +73,17 @@ footer.piedDePage nav ul {
 }
 
 //MISE EN PLACE INFORMATIONS SECONDAIRES
-.medias > h3{
+.medias > h3 {
   padding-top: 15px;
 }
-.informations__secondaires{
+.informations__secondaires {
   border-radius: 30px;
   padding: 10px;
-  text-align: center; 
-  display: block; 
+  text-align: center;
+  display: block;
 }
 // Coordonnées
-address > p{
+address > p {
   font-style: normal;
 }
 
@@ -100,26 +94,24 @@ address > p{
   margin: 5px;
 }
 
-
 // Logo pied de page
 .Festival__OFF_LogoFooter {
   width: 229px;
   height: auto;
   border-top: 1px solid $couleurtextefooter;
-
 }
 
 // Demi cercle rectangle
 .piedDePage {
-  background-color: $bleupieddepage; 
+  background-color: $bleupieddepage;
   position: relative;
-  padding-top: 100px; 
+  padding-top: 100px;
 }
 
 .piedDePage::before {
   content: "";
   position: absolute;
-  top: -55px; 
+  top: -55px;
   left: 0;
   right: 0;
   width: 100%;
@@ -129,7 +121,6 @@ address > p{
   border-top-right-radius: 50% 100px;
 }
 
-
 //VERSION TABLE
 //Menu version table
 @media (min-width: 601px) {
@@ -137,41 +128,41 @@ address > p{
     display: flex;
     justify-content: center;
   }
-  
+
   footer.piedDePage nav ul > li {
-    margin: 0 20px; 
+    margin: 0 20px;
   }
 
   footer.piedDePage ul > li ul {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
   }
- 
+
   footer.piedDePage ul > li ul > li {
-    padding: 5px 0; 
-}
+    padding: 5px 0;
+  }
 
-.informations__secondaires {
-  display: flex; 
-  justify-content: space-between; 
-}
+  .informations__secondaires {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.nos__coordonnees {
-  width: 45%; 
-}
+  .nos__coordonnees {
+    width: 45%;
+  }
 
-.nous__rejoindre {
-  width: 45%; 
-}
+  .nous__rejoindre {
+    width: 45%;
+  }
 }
 
 //Pour régler la distance au format table des deux div
 @media (min-width: 800px) {
-.nos__coordonnees {
-  padding-left: 20%;
-}
+  .nos__coordonnees {
+    padding-left: 20%;
+  }
 
-.nous__rejoindre {
-  padding-right: 20%;
-}
+  .nous__rejoindre {
+    padding-right: 20%;
+  }
 }
