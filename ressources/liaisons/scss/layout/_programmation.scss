@@ -2,6 +2,88 @@
 * @author Boulianne megane
 */
 
+// filtre pour les dates
+.filtre_date{
+    padding: 1.2em;
+    background-color: $rose;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 50%;
+    color: white;
+    border: 4px solid #aa506b;
+}
+.filtre_date :hover{
+    background-color: $roseSurvol;
+}
+.conteneur_filtre_date{
+    padding: 1em;
+}
+@media(min-width: 601px){
+    .conteneur_filtre_date{
+        text-align: center;
+    }
+}
+
+// h1
+@media(min-width: 601px){
+    .h1_prog{
+        text-align: center;
+    }
+}
+// h2
+@media(min-width: 601px){
+    .h2_prog_date{
+        text-align: center;
+    }
+}
+// h3
+.nom_scene_prog{
+    color: black;
+    padding-top: .5em;
+    text-align: left;
+}
+
+//h4
+.h4_heure-prog{
+    text-align: left;
+}
+// image
 .img_prog{
-    border-radius: 130px;
+    border-radius: 10px;
+}
+// artiste
+.nom_style-prog{
+    background-color: $bleuPoudre;
+    padding-bottom: 2em;
+    border-radius: 1em;
+    text-align: center;
+   width: 320px;
+}
+.groupe_heure_nom__style{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.style_artiste-prog{
+    color: black;
+}
+.lien-artistes_prog{
+    color: $rose;
+}
+
+
+// liste
+li{
+    list-style: none;
+}
+
+
+// main
+.main_programmation{
+    margin: .5em;
+    padding-bottom: 6em;
+}
+@media(min-width: 601px){
+    .main_programmation{
+        background-image: url(../../../../public/liaisons/images/FORMES-prog.png);
+    }
 }
