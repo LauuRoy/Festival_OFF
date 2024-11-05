@@ -34,33 +34,33 @@
     </nav>
     <div class="informations__secondaires">
         <div class="nos__coordonnees">
-            <h3>Nos coordonnées</h3>
+            <h3 class="h3__footer">Nos coordonnées</h3>
                 <address>
-                    <p>Festival OFF de Québec<br>
+                    <p class="p__footer">Festival OFF de Québec<br>
                        82 boul. René-Lévesque Ouest<br>
                        C.P. 48010<br>
                        Québec, Québec<br>
                        G1S 4X2</p>
-                       <p><a href="mailto:info@quebecoff.org">info@quebecoff.org</a><br>
+                       <p class="p__footer"><a href="mailto:info@quebecoff.org">info@quebecoff.org</a><br>
                        <a href="mailto:media@quebecoff.org">media@quebecoff.org</a>
-                    </p>
+                       </p>
                 </address>
         </div>
         <div class="nous__rejoindre">
     <div class="medias">
-        <h3> Nos médias sociaux </h3>
+        <h3 class = "h3__footer"> Nos médias sociaux </h3>
         <div class="logo__reseaux">
             <a href="https://www.facebook.com/?locale=fr_CA">
-                <img class="sociaux" src="../public/liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook">
+                <img class="sociaux__footer" src="../../public/liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook">
             </a>
             <a href="https://www.youtube.com/">
-                <img class="sociaux" src="../public/liaisons/images/svg/mdi--youtube.svg" alt="Youtube">
+                <img class="sociaux__footer" src="../../public/liaisons/images/svg/mdi--youtube.svg" alt="Youtube">
             </a>
             <a href="https://twitter.com/?lang=fr">
-                <img class="sociaux" src="../public/liaisons/images/svg/prime--twitter.svg" alt="Twitter">
+                <img class="sociaux__footer" src="../../public/liaisons/images/svg/prime--twitter.svg" alt="Twitter">
             </a>
             <a href="https://www.instagram.com/">
-                <img class="sociaux" src="../public/liaisons/images/svg/mdi--instagram.svg" alt="Instagram">
+                <img class="sociaux__footer" src="../public/liaisons/images/svg/mdi--instagram.svg" alt="Instagram">
             </a>
         </div>
     </div>

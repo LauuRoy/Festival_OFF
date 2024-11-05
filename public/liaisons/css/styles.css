@@ -29,6 +29,9 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
@@ -408,13 +411,105 @@ th {
 /**** UTILITAIRES ****************************/
 /** Variables **/
 /**
-* @author Prenom Nom courriel
+* @author megane boulianne
 */
 /** Polices de caractères **/
 /** Palette de couleurs **/
 /* Couleurs de base */
 /* Autres couleurs */
 /** Points de rupture **/
+h1,
+.h1 {
+  /* = 32px */
+  font-family: "Climate Crisis", sans-serif;
+  font-size: 3.2rem;
+}
+
+@media (min-width: 600px) {
+  h1,
+  .h1 {
+    /* = 40px */
+    font-family: "Climate Crisis", sans-serif;
+    font-size: 4rem;
+  }
+}
+@media (min-width: 800px) {
+  h1,
+  .h1 {
+    /* = 48px */
+    font-family: "Climate Crisis", sans-serif;
+    font-size: 7rem;
+  }
+}
+h2,
+.h2 {
+  /* = 24px */
+  font-family: "urbanist", sans-serif;
+  font-size: 3.2rem;
+}
+
+@media (min-width: 600px) {
+  h2,
+  .h2 {
+    /* = 32px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3.2rem;
+  }
+}
+@media (min-width: 800px) {
+  h2,
+  .h2 {
+    /* = 36px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3.6rem;
+  }
+}
+h3,
+.h3 {
+  /* = 18px */
+  font-family: "urbanist", sans-serif;
+  font-size: 1.8rem;
+}
+
+@media (min-width: 600px) {
+  h3,
+  .h3 {
+    /* = 24px */
+    font-family: "urbanist", sans-serif;
+    font-size: 2.4rem;
+  }
+}
+@media (min-width: 800px) {
+  h3,
+  .h3 {
+    /* = 30px */
+    font-family: "urbanist", sans-serif;
+    font-size: 3rem;
+  }
+}
+h4,
+.h4 {
+  /* = 16px */
+  font-family: "urbanist", sans-serif;
+  font-size: 1.6rem;
+}
+
+@media (min-width: 600px) {
+  h4,
+  .h4 {
+    /* = 18px */
+    font-family: "urbanist", sans-serif;
+    font-size: 1.8rem;
+  }
+}
+@media (min-width: 800px) {
+  h4,
+  .h4 {
+    /* = 22px */
+    font-family: "urbanist", sans-serif;
+    font-size: 2.2rem;
+  }
+}
 /** Mixins **/
 /**
 * @author Ève Février - efevrier@cegep-ste-foy.qc.ca
@@ -503,7 +598,7 @@ h1--desktop,
 }
 h1--desktop:after,
 .titreNiveau1--desktop:after {
-  background-color: #A6D6F9;
+  background-color: #9FDFF3;
   content: "";
   display: inline-block;
   width: 150px;
@@ -576,7 +671,7 @@ h3--desktop,
   text-decoration: none;
   border-radius: 18px;
   padding: 0.5em 1em;
-  background-color: #132F3D;
+  background-color: #132f3d;
   color: black;
 }
 .bouton:after {
@@ -709,25 +804,87 @@ Effet actif : #f4d07c
 .entete {
   overflow-x: hidden;
   background-color: #132f3d;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.entete__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.entete__bouton {
+  margin-top: 50px;
+  padding: 25px 20px;
+  border-radius: 10px;
+  background-color: #e96d92;
+  color: #ffffff;
+  font-size: 3rem;
+  width: auto;
+  text-align: center;
 }
 
-.entete__logo {
-  background-color: none;
+.logo__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.logo__header__entete__logo {
+  min-width: 40px;
+  max-width: 60px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
+@media (min-width: 630px) {
+  .entete {
+    overflow-x: hidden;
+    overflow: hidden;
+    background-color: #132f3d;
+    height: 150px;
+  }
+  .entete__bouton {
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 1em;
+    background-color: #e96d92;
+    color: #ffffff;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  .logo__header {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  .logo__header__entete__logo {
+    position: relative;
+    background-color: none;
+    min-width: 0%;
+    max-width: 80px;
+    cursor: pointer;
+  }
+}
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
+  margin-top: 70px;
 }
 
 .informations__secondaires {
-  background-color: #0F2835;
+  background-color: #0f2835;
 }
 
-p,
+.p__footer,
 a,
-h3,
+.h3__footer,
 .piedDePage__copyRights {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 footer.piedDePage a {
@@ -756,7 +913,7 @@ footer.piedDePage ul > li {
 }
 
 .medias .logo__reseaux a svg path:hover {
-  fill: #EE82A2;
+  fill: #ee82a2;
 }
 
 footer.piedDePage {
@@ -778,7 +935,7 @@ footer.piedDePage nav ul {
   display: block;
 }
 
-.medias > h3 {
+.medias > .h3__footer {
   padding-top: 15px;
 }
 
@@ -789,11 +946,11 @@ footer.piedDePage nav ul {
   display: block;
 }
 
-address > p {
+address > .p__footer {
   font-style: normal;
 }
 
-.sociaux {
+.sociaux__footer {
   height: 45px;
   width: 45px;
   margin: 5px;
@@ -802,11 +959,11 @@ address > p {
 .Festival__OFF_LogoFooter {
   width: 229px;
   height: auto;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #ffffff;
 }
 
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
   position: relative;
   padding-top: 100px;
 }
@@ -819,7 +976,7 @@ address > p {
   right: 0;
   width: 100%;
   height: 60px;
-  background-color: #132F3D;
+  background-color: #132f3d;
   border-top-left-radius: 50% 100px;
   border-top-right-radius: 50% 100px;
 }
@@ -861,10 +1018,88 @@ address > p {
 /**
 * @author Boulianne megane
 */
-.img_prog {
-  border-radius: 130px;
+.filtre_date {
+  padding: 1.2em;
+  background-color: #e96d92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  color: white;
+  border: 4px solid #aa506b;
 }
 
+.filtre_date :hover {
+  background-color: #ee82a2;
+}
+
+.conteneur_filtre_date {
+  padding: 1em;
+}
+
+@media (min-width: 601px) {
+  .conteneur_filtre_date {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h1_prog {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h2_prog_date {
+    text-align: center;
+  }
+}
+.nom_scene_prog {
+  color: black;
+  padding-top: 0.5em;
+  text-align: left;
+}
+
+.h4_heure-prog {
+  text-align: left;
+}
+
+.img_prog {
+  border-radius: 10px;
+}
+
+.nom_style-prog {
+  background-color: #9FDFF3;
+  padding-bottom: 2em;
+  border-radius: 1em;
+  text-align: center;
+  width: 320px;
+}
+
+.groupe_heure_nom__style {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.style_artiste-prog {
+  color: black;
+}
+
+.lien-artistes_prog {
+  color: #e96d92;
+}
+
+li {
+  list-style: none;
+}
+
+.main_programmation {
+  margin: 0.5em;
+  padding-bottom: 6em;
+}
+
+@media (min-width: 601px) {
+  .main_programmation {
+    background-image: url(../../../../public/liaisons/images/FORMES-prog.png);
+  }
+}
 .accueil__titre {
   padding: 20px;
 }
@@ -1177,6 +1412,177 @@ Effet actif : #f4d07c
 @media (min-width: 601px) {
   .js .menu--ferme .menu__liste {
     max-height: none;
+  }
+}
+
+/**
+* @author Laurie Roy
+*/
+.nom_artiste {
+  text-align: center;
+  width: 100%;
+  border-bottom: 0.5px solid black;
+}
+@media (min-width: 900px) {
+  .nom_artiste {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
+
+.evenements__informations {
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .evenements__informations {
+    text-align: left;
+  }
+}
+
+.provenance__artiste {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+}
+@media (min-width: 900px) {
+  .provenance__artiste {
+    text-align: left;
+  }
+}
+
+.pays__artiste {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .pays__artiste {
+    text-align: left;
+  }
+}
+
+.description__artiste {
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .description__artiste {
+    text-align: left;
+    max-width: 35%;
+    margin-left: auto;
+  }
+}
+
+.nom_artiste__h2 {
+  text-align: center;
+  width: 100%;
+  border-bottom: 0.5px solid black;
+}
+@media (min-width: 900px) {
+  .nom_artiste__h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
+
+.site__web__artiste {
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .site__web__artiste {
+    text-align: left;
+  }
+}
+
+.reseaux_sociaux a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #E96D92;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.reseaux_sociaux img {
+  width: 30px;
+  height: 30px;
+}
+
+.image__artiste__4 {
+  border-radius: 15px;
+}
+
+.carrousel-container {
+  position: relative;
+  width: 320px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 25px;
+}
+
+.carrousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carrousel-image {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.carrousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carrousel-btn.prev {
+  left: 10px;
+}
+
+.carrousel-btn.next {
+  right: 10px;
+}
+
+@media (min-width: 900px) {
+  .evenements {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 900px) {
+  .evenement__section {
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+  }
+}
+
+@media (min-width: 900px) {
+  .main {
+    max-width: 1024px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .decouvrir__reseau {
+    display: flex;
+    width: 1024px;
+    justify-content: space-between;
   }
 }
 

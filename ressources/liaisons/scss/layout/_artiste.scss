@@ -1,9 +1,160 @@
 /**
 * @author Laurie Roy
 */
+$couleurCercleSvg: #E96D92;
+.nom_artiste{
+    text-align: center;
+    width: 100%;
+    border-bottom: 0.5px solid black;
+    @media (min-width:900px){
+        text-align: left;
+        font-size: 3rem;
+        font-weight: 800;
+    }
+}
+
+.evenements__informations{
+    text-align: center;
+    width: 100%;
+
+    @media (min-width:900px){
+        text-align: left;
+    }
+}
 
 .provenance__artiste{
-    background-color: aqua;
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
+    @media (min-width:900px){
+        text-align: left;
+     }
+}
+
+.pays__artiste{
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    @media (min-width:900px){
+        text-align: left;
+    }
+}
+.description__artiste{
+    text-align: center;
+    @media (min-width:900px){
+        text-align: left;
+        max-width: 35%;
+        margin-left: auto;
+    }
+}
+
+.nom_artiste__h2{
+    text-align: center;
+    width: 100%;
+    border-bottom: 0.5px solid black;
+    @media (min-width:900px){
+        text-align: left;
+        font-size: 3rem;
+        font-weight: 800;
+    }
+}
+
+.site__web__artiste{
+    text-align: center;
+    @media (min-width:900px){
+        text-align: left;
+    }
+}
+
+// SVG RÉSEAUX SOCIAUX
+.reseaux_sociaux a {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    width: 40px; 
+    height: 40px; 
+    background-color: $couleurCercleSvg; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    text-decoration: none;
+}
+
+.reseaux_sociaux img {
+    width: 30px; 
+    height: 30px;
 }
 
 
+// CARROUSEL IMAGES
+// Image 4
+.image__artiste__4 {
+    border-radius: 15px; 
+     
+}
+
+.carrousel-container {
+    position: relative;
+    width: 320px; 
+    overflow: hidden; 
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.carrousel-images {
+    display: flex;
+    transition: transform 0.5s ease; 
+}
+
+.carrousel-image {
+    display: none; 
+    width: 100%;
+    height: auto;
+}
+
+.carrousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carrousel-btn.prev {
+    left: 10px;
+}
+
+.carrousel-btn.next {
+    right: 10px;
+}
+.evenements{
+    @media (min-width:900px){
+       padding: 0px;
+     }
+}
+.evenement__section{
+    @media (min-width:900px){
+        display: flex;
+        justify-content: space-between;
+        width: 1024px;
+    }
+   
+}
+
+.main{
+    @media (min-width:900px){
+       max-width: 1024px;
+       margin: auto;
+     }
+}
+.decouvrir__reseau{
+    @media (min-width:900px){
+      display: flex;
+      width: 1024px;
+      justify-content: space-between;
+      }
+}
