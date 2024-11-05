@@ -3,6 +3,7 @@
 <?php $niveau="../";?>
 <?php include ($niveau . "liaisons/php/config.inc.php");?>
 
+<?php include ($niveau . "liaisons/fragments/headlinks.inc.php");?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +12,8 @@
 	<meta name="keyword" content="">
 	<meta name="author" content="">
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="../liaisons/css/styles.css">
+
+    <script src="liaisons/js/_menu.js"></script>
     <?php include ($niveau . "liaisons/fragments/entete.inc.php");?>
 	<title>Programmation OFF</title>
 
@@ -29,13 +31,14 @@ else{
     $strIdDate = 0;
 }
 
-if($strIdDate != 0){
+
     $strRequeteDate = 'SELECT DISTINCT  DAYOFMONTH(date_et_heure) AS jour,  MONTH(date_et_heure) AS mois  FROM evenements ORDER BY jour';
-}
- $pdosResultatDate = $objPdo->query($strRequeteDate);
- 
+
+ $pdosResultatDate = $objPdo->prepare($strRequeteDate);
+  $pdosResultatDate -> execute(); 
+
  $arrDatesProg = array();
- 
+
  for($cptEnrDate=0;$ligneDatesProg=$pdosResultatDate->fetch(PDO::FETCH_ASSOC);$cptEnrDate ++){
     $arrDatesProg[$cptEnrDate]['id']=$cptEnrDate;
 	$arrDatesProg[$cptEnrDate]['jour']=$ligneDatesProg['jour'];

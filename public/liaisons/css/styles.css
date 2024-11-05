@@ -29,9 +29,6 @@
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap");
 html {
   font-family: sans-serif; /* 1 */
   -ms-text-size-adjust: 100%; /* 2 */
@@ -418,98 +415,6 @@ th {
 /* Couleurs de base */
 /* Autres couleurs */
 /** Points de rupture **/
-h1,
-.h1 {
-  /* = 32px */
-  font-family: "Climate Crisis", sans-serif;
-  font-size: 3.2rem;
-}
-
-@media (min-width: 600px) {
-  h1,
-  .h1 {
-    /* = 40px */
-    font-family: "Climate Crisis", sans-serif;
-    font-size: 4rem;
-  }
-}
-@media (min-width: 800px) {
-  h1,
-  .h1 {
-    /* = 48px */
-    font-family: "Climate Crisis", sans-serif;
-    font-size: 7rem;
-  }
-}
-h2,
-.h2 {
-  /* = 24px */
-  font-family: "urbanist", sans-serif;
-  font-size: 3.2rem;
-}
-
-@media (min-width: 600px) {
-  h2,
-  .h2 {
-    /* = 32px */
-    font-family: "urbanist", sans-serif;
-    font-size: 3.2rem;
-  }
-}
-@media (min-width: 800px) {
-  h2,
-  .h2 {
-    /* = 36px */
-    font-family: "urbanist", sans-serif;
-    font-size: 3.6rem;
-  }
-}
-h3,
-.h3 {
-  /* = 18px */
-  font-family: "urbanist", sans-serif;
-  font-size: 1.8rem;
-}
-
-@media (min-width: 600px) {
-  h3,
-  .h3 {
-    /* = 24px */
-    font-family: "urbanist", sans-serif;
-    font-size: 2.4rem;
-  }
-}
-@media (min-width: 800px) {
-  h3,
-  .h3 {
-    /* = 30px */
-    font-family: "urbanist", sans-serif;
-    font-size: 3rem;
-  }
-}
-h4,
-.h4 {
-  /* = 16px */
-  font-family: "urbanist", sans-serif;
-  font-size: 1.6rem;
-}
-
-@media (min-width: 600px) {
-  h4,
-  .h4 {
-    /* = 18px */
-    font-family: "urbanist", sans-serif;
-    font-size: 1.8rem;
-  }
-}
-@media (min-width: 800px) {
-  h4,
-  .h4 {
-    /* = 22px */
-    font-family: "urbanist", sans-serif;
-    font-size: 2.2rem;
-  }
-}
 /** Mixins **/
 /**
 * @author Ève Février - efevrier@cegep-ste-foy.qc.ca
@@ -598,7 +503,7 @@ h1--desktop,
 }
 h1--desktop:after,
 .titreNiveau1--desktop:after {
-  background-color: #9FDFF3;
+  background-color: #a6d6f9;
   content: "";
   display: inline-block;
   width: 150px;
@@ -1065,7 +970,7 @@ address > .p__footer {
 }
 
 .nom_style-prog {
-  background-color: #9FDFF3;
+  background-color: #a6d6f9;
   padding-bottom: 2em;
   border-radius: 1em;
   text-align: center;
@@ -1100,12 +1005,39 @@ li {
     background-image: url(../../../../public/liaisons/images/FORMES-prog.png);
   }
 }
+/* ----------- ACCUEIL ----------- */
 .accueil__titre {
   padding: 20px;
 }
 .accueil__layout {
   display: flex;
   flex-direction: row;
+}
+.accueil__banniere {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.accueil__banniere__mobile {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.accueil__banniere__desktop {
+  display: none;
+}
+@media (min-width: 630px) {
+  .accueil__banniere__mobile {
+    display: none;
+  }
+  .accueil__banniere__desktop {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
 /* ---------------- BANNIERE ----------------*/
@@ -1142,66 +1074,70 @@ li {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
-/* ---------------- ACTUALITÉE  ----------------*/
-/* General container for articles */
+/* ---------------- ARTICLES ----------------*/
 #contenu {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  /* Heading aligned to the left and positioned on top */
 }
 #contenu .article_h2 {
-  align-self: flex-start; /* Align the heading to the left */
-  font-size: 2.2rem; /* Slightly larger font size */
-  color: #333;
-  margin-bottom: 1rem;
-  margin-left: 10px; /* Small left margin */
+  align-self: flex-start;
+  font-size: 2.2rem;
+  color: black;
+  margin-bottom: 0.5rem;
+  margin-left: 10px;
 }
 
-/* Wrapper for articles to control visibility and overflow */
+.article_footer {
+  padding: 1rem;
+  color: black;
+  background-color: transparent;
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.9;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.article_auteur {
+  color: black;
+}
+
 .article {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  gap: 1rem;
   padding-bottom: 1rem;
-  width: 100%; /* Full width for the article section */
-  /* Individual article styles */
-  /* Footer section without any hover background change */
+  width: 100%;
+  margin-left: 10px;
 }
 .article article {
   scroll-snap-align: start;
-  flex: 0 0 100%; /* Fill the width of mobile screen */
-  max-width: 630px; /* Max width for larger screens */
+  flex: 0 0 100%;
+  max-width: 630px;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #add8e6; /* Light blue background */
+  background-color: #a6d6f9;
   transition: transform 0.3s ease;
-  margin-left: 10px; /* Left margin for each article */
-  /* Hover effect for slight scaling */
-  /* Bottom half for article preview */
-  /* Header section */
-  /* Apply a slightly darker blue background on hover for article_preview and header only */
+  margin-left: 10px;
 }
 .article article:hover {
   transform: scale(1.02);
 }
 .article article .article_preview {
   padding: 1rem;
-  background-color: transparent; /* No background initially */
+  background-color: transparent;
   transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-  opacity: 0.9; /* Set base opacity for subtle effect */
-  text-align: left; /* Align text to the left */
-  margin-left: 10px; /* Small left margin for text */
-  /* Text styling */
+  opacity: 0.9;
+  text-align: left;
+  margin-left: 10px;
 }
 .article article .article_preview p {
-  color: #333;
-  font-size: 1.1rem; /* Slightly larger font size */
+  color: black;
+  font-size: 1.1rem;
   margin: 0;
 }
 .article article .article_preview a {
@@ -1210,56 +1146,48 @@ li {
 }
 .article article header {
   padding: 1rem;
-  background-color: transparent; /* No background initially */
+  background-color: transparent;
   transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-  opacity: 0.9; /* Set base opacity for subtle effect */
-  text-align: left; /* Align text to the left */
-  margin-left: 10px; /* Small left margin for text */
+  opacity: 0.9;
+  text-align: left;
+  margin-left: 10px;
 }
 .article article header .article_h3 {
-  font-size: 1.7rem; /* Slightly larger font size */
-  color: #333;
+  font-size: 1.7rem;
+  color: black;
   margin: 0;
 }
 .article article:hover .article_preview,
 .article article:hover header {
-  background-color: #92c1dc; /* Darker blue for hover effect */
+  background-color: #92c1dc;
   opacity: 1;
-  transform: scale(1.02); /* Slightly scale up for effect */
-}
-.article footer {
-  padding: 1rem;
-  background-color: transparent; /* No background color change */
-  color: #333;
+  transform: scale(1.02);
 }
 
-/* Adjustments for mobile screens */
 @media (max-width: 630px) {
   .article {
-    gap: 0.5rem; /* Reduce gap between articles */
+    gap: 0.5rem;
   }
   .article article {
-    flex: 0 0 100%; /* Take up the full width */
-    max-width: 100%; /* Ensure full width on small screens */
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }
 /* ---------------- ARTISTES ----------------*/
-/* General container for suggestions */
 .suggestions {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 1rem;
-  width: 100%; /* Ensure full width for the suggestions section */
-  box-sizing: border-box; /* Include padding in width calculation */
-  /* Wrapper for artist list to control visibility and overflow */
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 2em;
 }
 .suggestions .artiste_h2 {
   font-size: 2rem;
-  color: black; /* Keeping heading color as black */
+  color: black;
   margin-bottom: 1rem;
-  align-self: flex-start; /* Align the heading to the left */
-  margin-left: 10px; /* Added left margin to match article headings */
+  align-self: flex-start;
+  margin-left: 10px;
 }
 .suggestions .artiste_ul {
   display: flex;
@@ -1267,51 +1195,169 @@ li {
   scroll-snap-type: x mandatory;
   gap: 1rem;
   padding-bottom: 1rem;
-  width: 100%; /* Full width for the suggestions section */
-  box-sizing: border-box; /* Include padding in width calculation */
-  /* Individual artist item styles */
+  width: 100%;
+  box-sizing: border-box;
 }
 .suggestions .artiste_ul .artiste_fiche {
   scroll-snap-align: start;
-  flex: 0 0 150px; /* Width for artist items */
+  flex: 0 0 300px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
-  background-color: #add8e6; /* Light pastel blue for artist items */
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #a6d6f9;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  /* Increased height for artist items */
-  height: 250px; /* Set a fixed height for items */
-  /* Hover effect for slight scaling */
-  /* Artist name link styling */
 }
 .suggestions .artiste_ul .artiste_fiche:hover {
   transform: scale(1.02);
 }
 .suggestions .artiste_ul .artiste_fiche a {
-  color: black; /* Font color set to black */
+  color: black;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.suggestions .artiste_ul .artiste_fiche a span {
   padding: 0.5rem;
   text-align: center;
-  flex-grow: 1; /* Allows the name section to grow and fill space */
-  /* Image styling */
 }
-.suggestions .artiste_ul .artiste_fiche a .artiste_imagefiche {
+.suggestions .artiste_ul .artiste_fiche a .suggestions_article_image {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
+  height: auto;
   object-fit: cover;
+  flex-grow: 1;
 }
 
-/* Adjustments for mobile screens */
 @media (max-width: 630px) {
   .suggestions .artiste_ul {
-    gap: 0.5rem; /* Reduce gap between artist items */
+    gap: 0.5rem;
   }
   .suggestions .artiste_ul .artiste_fiche {
-    flex: 0 0 100%; /* Take up the full width */
-    max-width: 100%; /* Ensure full width on small screens */
+    flex: 0 0 350px;
+    max-width: 100%;
+  }
+  .suggestions .artiste_ul .suggestions_article_image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-grow: 1;
+    border-radius: 1rem;
+  }
+}
+/* ---------------- ACTUALITES, TARIFS ET PRÉVENTES ----------------*/
+.sections_container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 7em;
+  padding: 0 1rem;
+}
+.sections_container .actualite_section,
+.sections_container .tarif_section,
+.sections_container .prevente_section {
+  width: 350px;
+  box-sizing: border-box;
+  text-align: left;
+  margin-right: 2rem;
+  padding: 10px;
+}
+.sections_container .actualite_section h2,
+.sections_container .tarif_section h2,
+.sections_container .prevente_section h2 {
+  color: black;
+  font-size: 35px;
+  margin: 0 0 1rem;
+  text-align: center;
+}
+.sections_container .actualite_section .conteneur,
+.sections_container .tarif_section .conteneur,
+.sections_container .prevente_section .conteneur {
+  padding: 1rem;
+  background-color: #a6d6f9;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.sections_container .prevente_section {
+  margin-right: 0;
+}
+
+.actualite_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.actualite_conteneur .titre {
+  padding-left: 10px;
+  margin: 0;
+  margin-bottom: 3rem;
+  color: black;
+  font-size: 20px;
+}
+
+.tarif_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.tarif_conteneur .tarif_ul {
+  list-style: none;
+  padding: 0;
+}
+.tarif_conteneur .tarif_ul .tarif_li {
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  color: black;
+}
+
+.prevente_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.prevente_conteneur .prevente_ul {
+  list-style: none;
+  padding: 0;
+}
+.prevente_conteneur .prevente_ul .prevente_li {
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  color: rgb(255, 255, 255);
+  background-color: #e96d92;
+  border-radius: 1rem;
+}
+.prevente_conteneur .prevente_ul .prevente_li .prevente_h4 {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
+@media (max-width: 630px) {
+  .sections_container {
+    flex-direction: column;
+  }
+  .sections_container .actualite_section,
+  .sections_container .tarif_section,
+  .sections_container .prevente_section {
+    width: 100%;
+    padding: 0.5rem;
+    margin-right: 0;
+  }
+  .sections_container .actualite_section .titre,
+  .sections_container .actualite_section .tarif_li,
+  .sections_container .actualite_section .prevente_li,
+  .sections_container .tarif_section .titre,
+  .sections_container .tarif_section .tarif_li,
+  .sections_container .tarif_section .prevente_li,
+  .sections_container .prevente_section .titre,
+  .sections_container .prevente_section .tarif_li,
+  .sections_container .prevente_section .prevente_li {
+    font-size: 20px;
+    padding-left: 5px;
+    margin-bottom: 2rem;
   }
 }
 /**
