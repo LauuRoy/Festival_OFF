@@ -198,7 +198,6 @@
     </div>
 </div>
 
-
 	</main>
 	<?php include ($niveau . "liaisons/fragments/piedDePage.inc.php");?>
 
