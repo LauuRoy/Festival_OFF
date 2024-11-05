@@ -1,109 +1,116 @@
+/* ----------- ACCUEIL ----------- */
+
 .accueil {
   &__titre {
     padding: 20px;
   }
+
   &__layout {
     display: flex;
     flex-direction: row;
   }
-}
 
-/* ---------------- BANNIERE ----------------*/
+  &__banniere {
+    margin: 0;
+    padding: 0;
+    position: relative;
 
-.article_preview {
-  color: black;
-}
+    &__mobile {
+      width: 100%;
+      height: auto;
+      overflow-x: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
 
-.accueil__banniere {
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-.accueil__banniere__mobile {
-  width: 100%;
-  height: auto;
-  overflow-x: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
+    &__desktop {
+      display: none;
+    }
 
-.accueil__banniere__deskop {
-  display: none;
-}
+    @media (min-width: 630px) {
+      &__mobile {
+        display: none;
+      }
 
-@media (min-width: 630px) {
-  .accueil__banniere__mobile {
-    display: none;
-  }
-
-  .accueil__banniere__deskop {
-    display: flex;
-    width: 100%;
-    height: auto;
-    overflow-x: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      &__desktop {
+        display: flex;
+        width: 100%;
+        height: auto;
+        overflow-x: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+    }
   }
 }
 
-/* ---------------- ACTUALITÉE  ----------------*/
-/* General container for articles */
+/* ----------- ARTICLES ----------- */
+
 #contenu {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
 
-  /* Heading aligned to the left and positioned on top */
   .article_h2 {
-    align-self: flex-start; /* Align the heading to the left */
-    font-size: 2.2rem; /* Slightly larger font size */
-    color: #333;
-    margin-bottom: 1rem;
-    margin-left: 10px; /* Small left margin */
+    align-self: flex-start;
+    font-size: 2.2rem;
+    color: $noir;
+    margin-bottom: 0.5rem;
+    margin-left: 10px;
   }
 }
 
-/* Wrapper for articles to control visibility and overflow */
 .article {
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  gap: 1rem;
   padding-bottom: 1rem;
-  width: 100%; /* Full width for the article section */
+  width: 100%;
+  margin-left: 10px;
 
-  /* Individual article styles */
+  &__footer {
+    padding: 1rem;
+    color: $noir;
+    background-color: transparent;
+    transition: background-color 0.4s ease, opacity 0.4s ease,
+      transform 0.4s ease;
+    opacity: 0.9;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  &__auteur {
+    color: $noir;
+  }
+
   article {
     scroll-snap-align: start;
-    flex: 0 0 100%; /* Fill the width of mobile screen */
-    max-width: 630px; /* Max width for larger screens */
+    flex: 0 0 100%;
+    max-width: 630px;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #add8e6; /* Light blue background */
+    background-color: $bleuPoudre;
     transition: transform 0.3s ease;
-    margin-left: 10px; /* Left margin for each article */
+    margin-left: 10px;
 
-    /* Hover effect for slight scaling */
     &:hover {
       transform: scale(1.02);
     }
 
-    /* Bottom half for article preview */
     .article_preview {
       padding: 1rem;
-      background-color: transparent; /* No background initially */
+      background-color: transparent;
       transition: background-color 0.4s ease, opacity 0.4s ease,
         transform 0.4s ease;
-      opacity: 0.9; /* Set base opacity for subtle effect */
-      text-align: left; /* Align text to the left */
-      margin-left: 10px; /* Small left margin for text */
+      opacity: 0.9;
+      text-align: left;
+      margin-left: 10px;
 
-      /* Text styling */
       p {
-        color: #333;
-        font-size: 1.1rem; /* Slightly larger font size */
+        color: $noir;
+        font-size: 1.1rem;
         margin: 0;
       }
 
@@ -113,130 +120,182 @@
       }
     }
 
-    /* Header section */
     header {
       padding: 1rem;
-      background-color: transparent; /* No background initially */
+      background-color: transparent;
       transition: background-color 0.4s ease, opacity 0.4s ease,
         transform 0.4s ease;
-      opacity: 0.9; /* Set base opacity for subtle effect */
-      text-align: left; /* Align text to the left */
-      margin-left: 10px; /* Small left margin for text */
+      opacity: 0.9;
+      text-align: left;
+      margin-left: 10px;
 
       .article_h3 {
-        font-size: 1.7rem; /* Slightly larger font size */
-        color: #333;
+        font-size: 1.7rem;
+        color: $noir;
         margin: 0;
       }
     }
 
-    /* Apply a slightly darker blue background on hover for article_preview and header only */
     &:hover {
       .article_preview,
       header {
-        background-color: #92c1dc; /* Darker blue for hover effect */
+        background-color: $bleuSurvol;
         opacity: 1;
-        transform: scale(1.02); /* Slightly scale up for effect */
+        transform: scale(1.02);
       }
     }
   }
 
-  /* Footer section without any hover background change */
-  footer {
-    padding: 1rem;
-    background-color: transparent; /* No background color change */
-    color: #333;
-  }
-}
-
-/* Adjustments for mobile screens */
-@media (max-width: 630px) {
-  .article {
-    gap: 0.5rem; /* Reduce gap between articles */
+  @media (max-width: 630px) {
+    gap: 0.5rem;
 
     article {
-      flex: 0 0 100%; /* Take up the full width */
-      max-width: 100%; /* Ensure full width on small screens */
+      flex: 0 0 100%;
+      max-width: 100%;
     }
   }
 }
 
-/* ---------------- ARTISTES ----------------*/
-/* General container for suggestions */
+/* ----------- SUGGESTIONS ----------- */
+
 .suggestions {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 1rem;
-  width: 100%; /* Ensure full width for the suggestions section */
-  box-sizing: border-box; /* Include padding in width calculation */
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 2em;
 
   .artiste_h2 {
     font-size: 2rem;
-    color: black; /* Keeping heading color as black */
+    color: $noir;
     margin-bottom: 1rem;
-    align-self: flex-start; /* Align the heading to the left */
-    margin-left: 10px; /* Added left margin to match article headings */
+    align-self: flex-start;
+    margin-left: 10px;
   }
 
-  /* Wrapper for artist list to control visibility and overflow */
   .artiste_ul {
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     gap: 1rem;
     padding-bottom: 1rem;
-    width: 100%; /* Full width for the suggestions section */
-    box-sizing: border-box; /* Include padding in width calculation */
+    width: 100%;
+    box-sizing: border-box;
 
-    /* Individual artist item styles */
     .artiste_fiche {
       scroll-snap-align: start;
-      flex: 0 0 150px; /* Width for artist items */
+      flex: 0 0 300px;
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center content horizontally */
-      background-color: #add8e6; /* Light pastel blue for artist items */
+      justify-content: flex-start;
+      align-items: center;
+      background-color: $bleuPoudre;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
 
-      /* Increased height for artist items */
-      height: 250px; /* Set a fixed height for items */
-
-      /* Hover effect for slight scaling */
       &:hover {
         transform: scale(1.02);
       }
 
-      /* Artist name link styling */
       a {
-        color: black; /* Font color set to black */
+        color: $noir;
         text-decoration: none;
-        padding: 0.5rem;
-        text-align: center;
-        flex-grow: 1; /* Allows the name section to grow and fill space */
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-between;
 
-        /* Image styling */
-        .artiste_imagefiche {
-          width: 100%;
-          height: auto; /* Maintain aspect ratio */
-          object-fit: cover;
+        span {
+          padding: 0.5rem;
+          text-align: center;
         }
+
+        .suggestions_article_image {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 630px) {
+    .artiste_ul {
+      gap: 0.5rem;
+
+      .artiste_fiche {
+        flex: 0 0 350px;
+        max-width: 100%;
+      }
+
+      .suggestions_article_image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        flex-grow: 1;
+        border-radius: 1rem;
       }
     }
   }
 }
 
-/* Adjustments for mobile screens */
-@media (max-width: 630px) {
-  .suggestions .artiste_ul {
-    gap: 0.5rem; /* Reduce gap between artist items */
+/* ----------- SECTIONS (ACTUALITES, TARIFS, PREVENTES) ----------- */
 
-    .artiste_fiche {
-      flex: 0 0 100%; /* Take up the full width */
-      max-width: 100%; /* Ensure full width on small screens */
+.sections_container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 7em;
+  padding: 0 1rem;
+
+  .actualite_section,
+  .tarif_section,
+  .prevente_section {
+    width: 350px;
+    box-sizing: border-box;
+    text-align: left;
+    margin-right: 2rem;
+    padding: 10px;
+
+    h2 {
+      color: $noir;
+      font-size: 35px;
+      margin: 0 0 1rem;
+      text-align: center;
+    }
+
+    .conteneur {
+      padding: 1rem;
+      background-color: $bleuPoudre;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .prevente_section {
+    margin-right: 0;
+  }
+
+  @media (max-width: 630px) {
+    flex-direction: column;
+
+    .actualite_section,
+    .tarif_section,
+    .prevente_section {
+      width: 100%;
+      padding: 0.5rem;
+      margin-right: 0;
+
+      .titre,
+      .tarif_li,
+      .prevente_li {
+        font-size: 20px;
+        padding-left: 5px;
+        margin-bottom: 2rem;
+      }
     }
   }
 }
