@@ -1,48 +1,50 @@
-/* ----------- ACCUEIL ----------- */
-
 .accueil {
   &__titre {
     padding: 20px;
   }
-
   &__layout {
     display: flex;
     flex-direction: row;
   }
+}
 
-  &__banniere {
-    margin: 0;
-    padding: 0;
-    position: relative;
+/* ---------------- BANNIERE ----------------*/
 
-    &__mobile {
-      width: 100%;
-      height: auto;
-      overflow-x: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
+.article_preview {
+  color: $noir;
+}
 
-    &__desktop {
-      display: none;
-    }
+.accueil__banniere {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.accueil__banniere__mobile {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
 
-    @media (min-width: 630px) {
-      &__mobile {
-        display: none;
-      }
+.accueil__banniere__deskop {
+  display: none;
+}
 
-      &__desktop {
-        display: flex;
-        width: 100%;
-        height: auto;
-        overflow-x: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      }
-    }
+@media (min-width: 630px) {
+  .accueil__banniere__mobile {
+    display: none;
+  }
+
+  .accueil__banniere__deskop {
+    display: flex;
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
 
-/* ----------- ARTICLES ----------- */
+/* ---------------- ARTICLES ----------------*/
 
 #contenu {
   display: flex;
@@ -59,6 +61,19 @@
   }
 }
 
+.article_footer {
+  padding: 1rem;
+  color: $noir;
+  background-color: transparent;
+  transition: background-color 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.9;
+  text-align: left;
+  margin-left: 10px;
+}
+.article_auteur {
+  color: $noir;
+}
+
 .article {
   display: flex;
   overflow-x: scroll;
@@ -66,21 +81,6 @@
   padding-bottom: 1rem;
   width: 100%;
   margin-left: 10px;
-
-  &__footer {
-    padding: 1rem;
-    color: $noir;
-    background-color: transparent;
-    transition: background-color 0.4s ease, opacity 0.4s ease,
-      transform 0.4s ease;
-    opacity: 0.9;
-    text-align: left;
-    margin-left: 10px;
-  }
-
-  &__auteur {
-    color: $noir;
-  }
 
   article {
     scroll-snap-align: start;
@@ -145,8 +145,10 @@
       }
     }
   }
+}
 
-  @media (max-width: 630px) {
+@media (max-width: 630px) {
+  .article {
     gap: 0.5rem;
 
     article {
@@ -156,7 +158,7 @@
   }
 }
 
-/* ----------- SUGGESTIONS ----------- */
+/* ---------------- ARTISTES ----------------*/
 
 .suggestions {
   display: flex;
@@ -222,28 +224,28 @@
       }
     }
   }
+}
 
-  @media (max-width: 630px) {
-    .artiste_ul {
-      gap: 0.5rem;
+@media (max-width: 630px) {
+  .suggestions .artiste_ul {
+    gap: 0.5rem;
 
-      .artiste_fiche {
-        flex: 0 0 350px;
-        max-width: 100%;
-      }
+    .artiste_fiche {
+      flex: 0 0 350px;
+      max-width: 100%;
+    }
 
-      .suggestions_article_image {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        flex-grow: 1;
-        border-radius: 1rem;
-      }
+    .suggestions_article_image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      flex-grow: 1;
+      border-radius: 1rem;
     }
   }
 }
 
-/* ----------- SECTIONS (ACTUALITES, TARIFS, PREVENTES) ----------- */
+/* ---------------- ACTUALITES, TARIFS ET PRÉVENTES ----------------*/
 
 .sections_container {
   display: flex;
@@ -278,8 +280,66 @@
   .prevente_section {
     margin-right: 0;
   }
+}
 
-  @media (max-width: 630px) {
+.actualite_conteneur {
+  display: flex;
+  flex-direction: column;
+
+  .titre {
+    padding-left: 10px;
+    margin: 0;
+    margin-bottom: 3rem;
+    color: $noir;
+    font-size: 20px;
+  }
+}
+
+.tarif_conteneur {
+  display: flex;
+  flex-direction: column;
+
+  .tarif_ul {
+    list-style: none;
+    padding: 0;
+
+    .tarif_li {
+      padding-left: 10px;
+      font-size: 20px;
+      margin-bottom: 3rem;
+      color: $noir;
+    }
+  }
+}
+
+.prevente_conteneur {
+  display: flex;
+  flex-direction: column;
+
+  .prevente_ul {
+    list-style: none;
+    padding: 0;
+
+    .prevente_li {
+      padding-left: 10px;
+      font-size: 20px;
+      margin-bottom: 3rem;
+      color: $blanc;
+      background-color: $rose;
+      border-radius: 1rem;
+
+      .prevente_h4 {
+        margin: 0;
+        margin-bottom: 0.3rem;
+        font-size: 18px;
+        color: $blanc;
+      }
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .sections_container {
     flex-direction: column;
 
     .actualite_section,

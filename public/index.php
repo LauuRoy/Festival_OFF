@@ -83,7 +83,7 @@
 	<link rel="icon" type="image/x-icon" href="">
 	<script src="liaisons/js/_menu.js"></script>
 	<title> O FF - Festival OFF De Québec </title>
-	<?php include ($niveau . "liaisons/fragments/headlinks.inc.html");?>
+	<?php include ($niveau . "liaisons/fragments/headlinks.inc.php");?>
 </head>
 
 <body>

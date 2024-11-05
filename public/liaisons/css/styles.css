@@ -408,7 +408,7 @@ th {
 /**** UTILITAIRES ****************************/
 /** Variables **/
 /**
-* @author Prenom Nom courriel
+* @author megane boulianne
 */
 /** Polices de caractères **/
 /** Palette de couleurs **/
@@ -503,7 +503,7 @@ h1--desktop,
 }
 h1--desktop:after,
 .titreNiveau1--desktop:after {
-  background-color: #A6D6F9;
+  background-color: #a6d6f9;
   content: "";
   display: inline-block;
   width: 150px;
@@ -576,7 +576,7 @@ h3--desktop,
   text-decoration: none;
   border-radius: 18px;
   padding: 0.5em 1em;
-  background-color: #132F3D;
+  background-color: #132f3d;
   color: black;
 }
 .bouton:after {
@@ -709,25 +709,86 @@ Effet actif : #f4d07c
 .entete {
   overflow-x: hidden;
   background-color: #132f3d;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.entete__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.entete__bouton {
+  margin-top: 50px;
+  padding: 25px 20px;
+  border-radius: 10px;
+  background-color: #e96d92;
+  color: #ffffff;
+  font-size: 3rem;
+  width: auto;
+  text-align: center;
 }
 
-.entete__logo {
-  background-color: none;
+.logo__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.logo__header__entete__logo {
+  min-width: 40px;
+  max-width: 60px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
+@media (min-width: 630px) {
+  .entete {
+    overflow-x: hidden;
+    overflow: hidden;
+    background-color: #132f3d;
+    height: 150px;
+  }
+  .entete__bouton {
+    font-size: 2rem;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 1em;
+    background-color: #e96d92;
+    color: #ffffff;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+  }
+  .logo__header {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  .logo__header__entete__logo {
+    position: relative;
+    background-color: none;
+    min-width: 0%;
+    max-width: 80px;
+    cursor: pointer;
+  }
+}
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
 }
 
 .informations__secondaires {
-  background-color: #0F2835;
+  background-color: #0f2835;
 }
 
 p,
 a,
 h3,
 .piedDePage__copyRights {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 footer.piedDePage a {
@@ -756,7 +817,7 @@ footer.piedDePage ul > li {
 }
 
 .medias .logo__reseaux a svg path:hover {
-  fill: #EE82A2;
+  fill: #ee82a2;
 }
 
 footer.piedDePage {
@@ -802,11 +863,11 @@ address > p {
 .Festival__OFF_LogoFooter {
   width: 229px;
   height: auto;
-  border-top: 1px solid #FFFFFF;
+  border-top: 1px solid #ffffff;
 }
 
 .piedDePage {
-  background-color: #132F3D;
+  background-color: #132f3d;
   position: relative;
   padding-top: 100px;
 }
@@ -819,7 +880,7 @@ address > p {
   right: 0;
   width: 100%;
   height: 60px;
-  background-color: #132F3D;
+  background-color: #132f3d;
   border-top-left-radius: 50% 100px;
   border-top-right-radius: 50% 100px;
 }
@@ -861,11 +922,88 @@ address > p {
 /**
 * @author Boulianne megane
 */
-.img_prog {
-  border-radius: 130px;
+.filtre_date {
+  padding: 1.2em;
+  background-color: #e96d92;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  color: white;
+  border: 4px solid #aa506b;
 }
 
-/* ----------- ACCUEIL ----------- */
+.filtre_date :hover {
+  background-color: #ee82a2;
+}
+
+.conteneur_filtre_date {
+  padding: 1em;
+}
+
+@media (min-width: 601px) {
+  .conteneur_filtre_date {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h1_prog {
+    text-align: center;
+  }
+}
+@media (min-width: 601px) {
+  .h2_prog_date {
+    text-align: center;
+  }
+}
+.nom_scene_prog {
+  color: black;
+  padding-top: 0.5em;
+  text-align: left;
+}
+
+.h4_heure-prog {
+  text-align: left;
+}
+
+.img_prog {
+  border-radius: 10px;
+}
+
+.nom_style-prog {
+  background-color: #a6d6f9;
+  padding-bottom: 2em;
+  border-radius: 1em;
+  text-align: center;
+  width: 320px;
+}
+
+.groupe_heure_nom__style {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.style_artiste-prog {
+  color: black;
+}
+
+.lien-artistes_prog {
+  color: #e96d92;
+}
+
+li {
+  list-style: none;
+}
+
+.main_programmation {
+  margin: 0.5em;
+  padding-bottom: 6em;
+}
+
+@media (min-width: 601px) {
+  .main_programmation {
+    background-image: url(../../../../public/liaisons/images/FORMES-prog.png);
+  }
+}
 .accueil__titre {
   padding: 20px;
 }
@@ -873,25 +1011,34 @@ address > p {
   display: flex;
   flex-direction: row;
 }
+
+/* ---------------- BANNIERE ----------------*/
+.article_preview {
+  color: black;
+}
+
 .accueil__banniere {
   margin: 0;
   padding: 0;
   position: relative;
 }
+
 .accueil__banniere__mobile {
   width: 100%;
   height: auto;
   overflow-x: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-.accueil__banniere__desktop {
+
+.accueil__banniere__deskop {
   display: none;
 }
+
 @media (min-width: 630px) {
   .accueil__banniere__mobile {
     display: none;
   }
-  .accueil__banniere__desktop {
+  .accueil__banniere__deskop {
     display: flex;
     width: 100%;
     height: auto;
@@ -899,8 +1046,7 @@ address > p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 }
-
-/* ----------- ARTICLES ----------- */
+/* ---------------- ARTICLES ----------------*/
 #contenu {
   display: flex;
   flex-direction: column;
@@ -915,15 +1061,7 @@ address > p {
   margin-left: 10px;
 }
 
-.article {
-  display: flex;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
-  width: 100%;
-  margin-left: 10px;
-}
-.article__footer {
+.article_footer {
   padding: 1rem;
   color: black;
   background-color: transparent;
@@ -932,8 +1070,18 @@ address > p {
   text-align: left;
   margin-left: 10px;
 }
-.article__auteur {
+
+.article_auteur {
   color: black;
+}
+
+.article {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  width: 100%;
+  margin-left: 10px;
 }
 .article article {
   scroll-snap-align: start;
@@ -987,6 +1135,7 @@ address > p {
   opacity: 1;
   transform: scale(1.02);
 }
+
 @media (max-width: 630px) {
   .article {
     gap: 0.5rem;
@@ -996,8 +1145,7 @@ address > p {
     max-width: 100%;
   }
 }
-
-/* ----------- SUGGESTIONS ----------- */
+/* ---------------- ARTISTES ----------------*/
 .suggestions {
   display: flex;
   flex-direction: column;
@@ -1056,6 +1204,7 @@ address > p {
   object-fit: cover;
   flex-grow: 1;
 }
+
 @media (max-width: 630px) {
   .suggestions .artiste_ul {
     gap: 0.5rem;
@@ -1072,8 +1221,7 @@ address > p {
     border-radius: 1rem;
   }
 }
-
-/* ----------- SECTIONS (ACTUALITES, TARIFS, PREVENTES) ----------- */
+/* ---------------- ACTUALITES, TARIFS ET PRÉVENTES ----------------*/
 .sections_container {
   display: flex;
   align-items: flex-start;
@@ -1108,6 +1256,57 @@ address > p {
 .sections_container .prevente_section {
   margin-right: 0;
 }
+
+.actualite_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.actualite_conteneur .titre {
+  padding-left: 10px;
+  margin: 0;
+  margin-bottom: 3rem;
+  color: black;
+  font-size: 20px;
+}
+
+.tarif_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.tarif_conteneur .tarif_ul {
+  list-style: none;
+  padding: 0;
+}
+.tarif_conteneur .tarif_ul .tarif_li {
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  color: black;
+}
+
+.prevente_conteneur {
+  display: flex;
+  flex-direction: column;
+}
+.prevente_conteneur .prevente_ul {
+  list-style: none;
+  padding: 0;
+}
+.prevente_conteneur .prevente_ul .prevente_li {
+  padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 3rem;
+  color: rgb(255, 255, 255);
+  background-color: #e96d92;
+  border-radius: 1rem;
+}
+.prevente_conteneur .prevente_ul .prevente_li .prevente_h4 {
+  margin: 0;
+  margin-bottom: 0.3rem;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+
 @media (max-width: 630px) {
   .sections_container {
     flex-direction: column;
@@ -1133,7 +1332,6 @@ address > p {
     margin-bottom: 2rem;
   }
 }
-
 /**
  * @author Marie-Pierre Plante
  * @todo Projet OFF
