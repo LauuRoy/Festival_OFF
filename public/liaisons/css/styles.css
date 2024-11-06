@@ -778,46 +778,69 @@ Effet actif : #f4d07c
 }
 .piedDePage {
   background-color: #132f3d;
+  margin-top: 70px;
+  position: relative;
+  padding-top: 100px;
+}
+.piedDePage::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #132f3d;
+  border-top-left-radius: 50% 100px;
+  border-top-right-radius: 50% 100px;
 }
 
 .informations__secondaires {
   background-color: #0f2835;
 }
 
-p,
+.p__footer,
 a,
-h3,
+.h3__footer,
 .piedDePage__copyRights {
   color: #ffffff;
 }
 
-footer.piedDePage a {
+.a__footer {
   text-decoration: none;
 }
-
-footer.piedDePage > nav > ul > li > a {
+.a__footer:hover {
   text-decoration: underline;
 }
 
-footer.piedDePage {
+nav {
   font-family: "Urbanist", sans-serif;
+  text-align: center;
+  padding: 20px;
 }
-
-footer.piedDePage > nav > ul > li > a {
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+nav ul > li {
+  line-height: 35px;
+}
+nav ul > li:last-child {
+  padding-bottom: 20px;
+}
+nav ul > li .a__footer {
   font-size: 20px;
   font-weight: 600;
 }
 
-footer.piedDePage ul > li {
-  line-height: 35px;
+.medias .logo__reseaux a svg path:hover {
+  fill: #ee82a2;
 }
 
 .piedDePage__copyRights {
   font-size: 10px;
-}
-
-.medias .logo__reseaux a svg path:hover {
-  fill: #ee82a2;
 }
 
 footer.piedDePage {
@@ -839,22 +862,22 @@ footer.piedDePage nav ul {
   display: block;
 }
 
-.medias > h3 {
-  padding-top: 15px;
-}
-
 .informations__secondaires {
+  background-color: #0f2835;
   border-radius: 30px;
   padding: 10px;
   text-align: center;
   display: block;
 }
+.informations__secondaires .h3__footer {
+  padding-top: 15px;
+}
 
-address > p {
+address > .p__footer {
   font-style: normal;
 }
 
-.sociaux {
+.sociaux__footer {
   height: 45px;
   width: 45px;
   margin: 5px;
@@ -864,25 +887,6 @@ address > p {
   width: 229px;
   height: auto;
   border-top: 1px solid #ffffff;
-}
-
-.piedDePage {
-  background-color: #132f3d;
-  position: relative;
-  padding-top: 100px;
-}
-
-.piedDePage::before {
-  content: "";
-  position: absolute;
-  top: -55px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #132f3d;
-  border-top-left-radius: 50% 100px;
-  border-top-right-radius: 50% 100px;
 }
 
 @media (min-width: 601px) {
@@ -1457,6 +1461,177 @@ Effet actif : #f4d07c
 @media (min-width: 601px) {
   .js .menu--ferme .menu__liste {
     max-height: none;
+  }
+}
+
+/**
+* @author Laurie Roy
+*/
+.nom_artiste {
+  text-align: center;
+  width: 100%;
+  border-bottom: 0.5px solid #000000;
+}
+@media (min-width: 900px) {
+  .nom_artiste {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
+
+.evenements__informations {
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .evenements__informations {
+    text-align: left;
+  }
+}
+
+.provenance__artiste {
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+}
+@media (min-width: 900px) {
+  .provenance__artiste {
+    text-align: left;
+  }
+}
+
+.pays__artiste {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+@media (min-width: 900px) {
+  .pays__artiste {
+    text-align: left;
+  }
+}
+
+.description__artiste {
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .description__artiste {
+    text-align: left;
+    max-width: 35%;
+    margin-left: auto;
+  }
+}
+
+.nom_artiste__h2 {
+  text-align: center;
+  width: 100%;
+  border-bottom: 0.5px solid #000000;
+}
+@media (min-width: 900px) {
+  .nom_artiste__h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+}
+
+.site__web__artiste {
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .site__web__artiste {
+    text-align: left;
+  }
+}
+
+.reseaux_sociaux a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #E96D92;
+  border-radius: 50%;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.reseaux_sociaux img {
+  width: 30px;
+  height: 30px;
+}
+
+.image__artiste__4 {
+  border-radius: 15px;
+}
+
+.carrousel-container {
+  position: relative;
+  width: 320px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 25px;
+}
+
+.carrousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carrousel-image {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.carrousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carrousel-btn.prev {
+  left: 10px;
+}
+
+.carrousel-btn.next {
+  right: 10px;
+}
+
+@media (min-width: 900px) {
+  .evenements {
+    padding: 0px;
+  }
+}
+
+@media (min-width: 900px) {
+  .evenement__section {
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+  }
+}
+
+@media (min-width: 900px) {
+  .main {
+    max-width: 1024px;
+    margin: auto;
+  }
+}
+
+@media (min-width: 900px) {
+  .decouvrir__reseau {
+    display: flex;
+    width: 1024px;
+    justify-content: space-between;
   }
 }
 

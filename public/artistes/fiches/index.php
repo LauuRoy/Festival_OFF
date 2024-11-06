@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <?php $niveau = "../../"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site web du festival Off ">
     <meta name="keywords" content="festival, Off, programmation, artistes">
     <meta name="author" content="Laurie Roy">
-    <meta charset="utf-8"><link rel="stylesheet" href="../liaisons/css/styles.css">
+    <!-- <meta charset="utf-8"><link rel="stylesheet" href="../../liaisons/css/styles.css"> -->
     <title>Festival Off - Fiches d'artistes</title>
+	<?php include ($niveau . "liaisons/fragments/headlinks.inc.php");?>
 </head>
+
 
 <?php
 // Définition du niveau et inclusion de la configuration
-$niveau = "../../";
 include($niveau . 'liaisons/php/config.inc.php');
+?>
+
+<?php
+// Récupération des événements d'artistes
+if (isset($_GET['style_id'])) {
+    $strIdStyle = intval($_GET['style_id']); 
+    // Requête pour récupérer les événements filtrés par style
+    $strRequete = "SELECT DISTINCT nom, HOUR(date_et_heure) as heure, MINUTE(date_et_heure) as min, DAY(date_et_heure) as jour, MONTH(date_et_heure) as mois  
+    FROM evenements
+    INNER JOIN lieux ON evenements.lieu_id = lieux.id
+    WHERE artiste_id = " . $strIdStyle;
+} else {
+    // Requête pour récupérer tous les événements
+    $strRequete = "SELECT DISTINCT nom, HOUR(date_et_heure) as heure, MINUTE(date_et_heure) as min, DAY(date_et_heure) as jour, MONTH(date_et_heure) as mois  
+    FROM evenements
+    INNER JOIN lieux ON evenements.lieu_id = lieux.id"
+    ;
+}
+
+// Exécution de la requête
+$pdoResultat = $objPdo ->query($strRequete);
+$arrEvenements = $pdoResultat->fetchAll(PDO::FETCH_ASSOC); // Fetch all results at once
 
 
 // Tableau des réseaux sociaux par ID d'artiste (sans toucher à la base de données)
@@ -124,16 +148,14 @@ $liensSociaux = [
 ?>
 
 <body class="page">
-<a href="#contenu" class="screen-reader-only focusable">Allez au contenu</a>
-<a href="<?php echo $niveau;?>index.php">Retour</a>
-
+<?php include ($niveau . "liaisons/fragments/entete.inc.php");?>
 <main class="main" id="contenu" role="main">   
 <?php
 
 $niveau = "../../";
 include($niveau . 'liaisons/php/config.inc.php');
 
-$cheminImages = $niveau . '../public/liaisons/images/artistes/';
+$cheminImages = $niveau . './liaisons/images/artistes/';
 
 // ID de l'artiste à afficher
 $strIdStyle = isset($_GET['style_id']) ? intval($_GET['style_id']) : 0;
@@ -144,25 +166,67 @@ $pdoResultatNom = $objPdo->query($strRequeteNom);
 $noms = $pdoResultatNom->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<!-- // Affichage du nom de l'artiste -->
-<h1 class="noms_artistes"><?php echo isset($noms['nom']) ? htmlspecialchars($noms['nom']) : "Artiste inconnu"; ?></h1>
+<!-- NOM ARTISTE -->
+<h1 class="nom_artiste"><?php echo isset($noms['nom']) ? htmlspecialchars($noms['nom']) : "Artiste inconnu"; ?></h1>
 
-<div class="carousel-container">
-    <div class="carousel-images">
-        <?php
-        
-        for ($i = 0; $i <= 3; $i++) {
-            $cheminImageArtiste = $cheminImages . $strIdStyle . "_" . $i . "_W320.jpg";
-            if (file_exists($cheminImageArtiste)) {
-                echo '<img src="' . htmlspecialchars($cheminImageArtiste) . '" class="carousel-image" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="320" height="214">';
-            }
+<section class="evenement__section">
+    <article class="emplacements">
+
+<!-- DATE EVENEMENTS -->
+<ul class="evenements">
+<?php
+if (count($arrEvenements) > 0) {
+    foreach ($arrEvenements as $evenement) {
+        echo '<li class="evenements__informations">';
+        echo " <strong> Emplacement </strong>  :" . $evenement['nom'] . "<br>";
+        echo "Heures : " . $evenement['heure'] . "<br>";
+        echo "Minutes : " . $evenement['min'] . "<br>";
+        echo "Jour : " . $evenement['jour'] . "<br>";
+        echo "Mois : " . $evenement['mois'] . "<br>";
+        echo "</li>";
+    }
+} else {
+    echo "<li>Aucun événement</li>";
+}
+?>
+</ul>
+
+<!-- PROVENANCE -->
+<p class="provenance__artiste">
+    <strong> Provenance: </strong>
+    <?php echo isset($noms['provenance']) ? htmlspecialchars($noms['provenance']) : "indisponible"; ?>
+</p>
+
+<!-- PAYS -->
+<p class="pays__artiste">
+    <strong> Pays: </strong>
+    <?php echo isset($noms['pays']) ? htmlspecialchars($noms['pays']) : "indisponible"; ?>
+</p>
+</article>
+<div class="carrousel-container">
+<div class="carrousel-images"> 
+    <?php
+    for ($i = 0; $i <= 3; $i++) {
+        $cheminImagePetite = $cheminImages . $strIdStyle . "_" . $i . "_W320.jpg";
+        // $cheminImageGrande = $cheminImages . $strIdStyle . "_" . $i . "_W552.jpg"; 
+
+        if (file_exists($cheminImagePetite)) {
+            echo '<img src="' . htmlspecialchars($cheminImagePetite) . '" class="carousel-image" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="320" height="214">';
         }
-        ?>
-    </div>
 
-    <!-- Boutons de navigation -->
-    <button class="carousel-btn prev" onclick="prevImage()">&#10094;</button>
-    <button class="carousel-btn next" onclick="nextImage()">&#10095;</button>
+        // if (file_exists($cheminImageGrande)) {
+        //     echo '<img src="' . htmlspecialchars($cheminImageGrande) . '" class="carousel-image large-screen" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="552" height="369">';
+        // }
+    }
+    ?>
+</div>
+
+
+      <!-- Boutons de navigation -->
+      <button class="carrousel-btn prev" onclick="prevImage()">&#10094;</button>
+    <button class="carrousel-btn next" onclick="nextImage()">&#10095;</button>
+    </section>
+  
 </div>
 
 <div class='image__artiste__4'>
@@ -171,38 +235,21 @@ $imageArtisteNum4 = $cheminImages . $strIdStyle . "_4_W320.jpg";
 ?>
 </div>
 
-<!-- Autres informations de l'artiste -->
-<p class="provenance__artiste">
-    Provenance:
-    <?php echo isset($noms['provenance']) ? htmlspecialchars($noms['provenance']) : "indisponible"; ?>
-</p>
-
-<p class="pays__artiste">
-    Pays:
-    <?php echo isset($noms['pays']) ? htmlspecialchars($noms['pays']) : "indisponible"; ?>
-</p>
-
+<!-- DESCRIPTION -->
+ <!-- METTRE BALISE A POUR LIEN CLIQUABLE -->
 <p class="description__artiste">
     <?php echo isset($noms['description']) ? htmlspecialchars($noms['description']) : "indisponible"; ?>
 </p>
 
-<p class="site__web__artiste">
-    Site internet:
-    <?php echo isset($noms['site_web']) ? htmlspecialchars($noms['site_web']) : "indisponible"; ?>
-</p>
+<!-- DÉCOUVRIR ARTISTE -->
+<h2 class="nom_artiste__h2"> 
+    Découvrir <?php echo isset($noms['nom']) ? htmlspecialchars($noms['nom']) : "Artiste inconnu"; ?>
+</h2>
 
-<?php 
-// Vérifier si l'image numéro 4 existe avant de l'afficher
-if (file_exists($imageArtisteNum4)) {
-    echo '<img src="' . htmlspecialchars($imageArtisteNum4) . '" alt="Image de l\'artiste" width="320" height="214">';
-} else {
-    echo "<p>L'image de l'artiste n'est pas disponible.</p>";
-}
-?>
 
-<!-- Réseaux Sociaux de l'Artiste -->
-<p class="reseaux_sociaux">
-    Réseaux sociaux :
+<!-- RÉSEAUX SOCIAUX -->
+<section class="decouvrir__reseau">
+<nav class="reseaux_sociaux">
     <?php 
     if (isset($liensSociaux[$strIdStyle])) {
         $liens = $liensSociaux[$strIdStyle];
@@ -213,24 +260,85 @@ if (file_exists($imageArtisteNum4)) {
         } else {
             // Afficher les liens s'ils existent
             if (!empty($liens['facebook'])) {
-                echo '<a href="' . htmlspecialchars($liens['facebook']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook" width="20" height="20"></a> ';
+                echo '<a href="' . htmlspecialchars($liens['facebook']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-ic--baseline-facebook.svg" alt="Facebook" width="" height=""></a> ';
             }
+            
             if (!empty($liens['instagram'])) {
-                echo '<a href="' . htmlspecialchars($liens['instagram']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/mdi--instagram.svg" alt="Instagram" width="20" height="20"></a> ';
+                echo '<a href="' . htmlspecialchars($liens['instagram']) . '" target="_blank">
+                <img src="' . $niveau . './liaisons/images/svg/blanc-mdi--instagram.svg" alt="Instagram" width="" height=""></a> ';
             }
             if (!empty($liens['youtube'])) {
-                echo '<a href="' . htmlspecialchars($liens['youtube']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/mdi--youtube.svg" alt="YouTube" width="20" height="20"></a> ';
+                echo '<a href="' . htmlspecialchars($liens['youtube']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-mdi--youtube.svg" alt="YouTube" width="" height=""></a> ';
             }
             if (!empty($liens['spotify'])) {
-                echo '<a href="' . htmlspecialchars($liens['spotify']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/Spotify--Streamline-Plump.svg" alt="Spotify" width="20" height="20"></a>';
+                echo '<a href="' . htmlspecialchars($liens['spotify']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-mdi--spotify.svg" alt="Spotify" width="" height=""></a>';
             }
         }
     }
     ?>
+
+
+<!-- SITE WEB -->
+<p class="site__web__artiste">
+    <strong>Site internet: </strong> <br>
+    <?php echo isset($noms['site_web']) ? htmlspecialchars($noms['site_web']) : "indisponible"; ?>
 </p>
+</nav>
+
+<!-- IMAGE NUM.4 -->
+<?php 
+if (file_exists($imageArtisteNum4)) {
+    echo '<img class="image__artiste__4" src="' . htmlspecialchars($imageArtisteNum4) . '" alt="Image de l\'artiste" width="320" height="214">';
+} else {
+    echo "<p>L'image de l'artiste n'est pas disponible.</p>";
+}
+?>
+</section>
 </body>
 </main>
 
 
+<?php include ($niveau . "liaisons/fragments/piedDePage.inc.php");?>
+
+
 </html>
 
+
+
+<!-- JAVASCRIPT -->
+<script src="liaisons/js/_menu.js"></script>
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+
+    // Affiche l'image correspondant à l'index actuel
+    function showImage(index) {
+        // Si l'index dépasse le nombre d'images, on revient au début ou à la fin
+        if (index >= images.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = images.length - 1;
+        } else {
+            currentIndex = index;
+        }
+
+        // Masquer toutes les images
+        images.forEach(image => image.style.display = 'none');
+
+        // Afficher l'image actuelle
+        images[currentIndex].style.display = 'block';
+    }
+
+    // Fonction pour afficher l'image précédente
+    function prevImage() {
+        showImage(currentIndex - 1);
+    }
+
+    // Fonction pour afficher l'image suivante
+    function nextImage() {
+        showImage(currentIndex + 1);
+    }
+
+    // Initialisation du carrousel en affichant la première image
+    showImage(currentIndex);
+</script>

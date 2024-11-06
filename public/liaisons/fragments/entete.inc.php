@@ -2,7 +2,7 @@
 <header class="entete" role="banner">
     <div class="logo__header">
         <a href="index.php">
-        <img class="entete__logo" src="./liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF Logo" title="Festival-OFF" /></a>
+        <img class="entete__logo" src="<?php echo $niveau;?>liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF Logo" title="Festival-OFF" /></a>
     </div>
     <button class="entete__bouton"> Acheter mon passeport </button>
 <nav class="menu menu--ferme">
