@@ -779,6 +779,20 @@ Effet actif : #f4d07c
 .piedDePage {
   background-color: #132f3d;
   margin-top: 70px;
+  position: relative;
+  padding-top: 100px;
+}
+.piedDePage::before {
+  content: "";
+  position: absolute;
+  top: -55px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #132f3d;
+  border-top-left-radius: 50% 100px;
+  border-top-right-radius: 50% 100px;
 }
 
 .informations__secondaires {
@@ -792,33 +806,41 @@ a,
   color: #ffffff;
 }
 
-footer.piedDePage a {
+.a__footer {
   text-decoration: none;
 }
-
-footer.piedDePage > nav > ul > li > a {
+.a__footer:hover {
   text-decoration: underline;
 }
 
-footer.piedDePage {
+nav {
   font-family: "Urbanist", sans-serif;
+  text-align: center;
+  padding: 20px;
 }
-
-footer.piedDePage > nav > ul > li > a {
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+nav ul > li {
+  line-height: 35px;
+}
+nav ul > li:last-child {
+  padding-bottom: 20px;
+}
+nav ul > li .a__footer {
   font-size: 20px;
   font-weight: 600;
 }
 
-footer.piedDePage ul > li {
-  line-height: 35px;
+.medias .logo__reseaux a svg path:hover {
+  fill: #ee82a2;
 }
 
 .piedDePage__copyRights {
   font-size: 10px;
-}
-
-.medias .logo__reseaux a svg path:hover {
-  fill: #ee82a2;
 }
 
 footer.piedDePage {
@@ -840,15 +862,15 @@ footer.piedDePage nav ul {
   display: block;
 }
 
-.medias > .h3__footer {
-  padding-top: 15px;
-}
-
 .informations__secondaires {
+  background-color: #0f2835;
   border-radius: 30px;
   padding: 10px;
   text-align: center;
   display: block;
+}
+.informations__secondaires .h3__footer {
+  padding-top: 15px;
 }
 
 address > .p__footer {
@@ -865,25 +887,6 @@ address > .p__footer {
   width: 229px;
   height: auto;
   border-top: 1px solid #ffffff;
-}
-
-.piedDePage {
-  background-color: #132f3d;
-  position: relative;
-  padding-top: 100px;
-}
-
-.piedDePage::before {
-  content: "";
-  position: absolute;
-  top: -55px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #132f3d;
-  border-top-left-radius: 50% 100px;
-  border-top-right-radius: 50% 100px;
 }
 
 @media (min-width: 601px) {
@@ -1467,7 +1470,7 @@ Effet actif : #f4d07c
 .nom_artiste {
   text-align: center;
   width: 100%;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid #000000;
 }
 @media (min-width: 900px) {
   .nom_artiste {
@@ -1523,7 +1526,7 @@ Effet actif : #f4d07c
 .nom_artiste__h2 {
   text-align: center;
   width: 100%;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid #000000;
 }
 @media (min-width: 900px) {
   .nom_artiste__h2 {
@@ -1587,7 +1590,7 @@ Effet actif : #f4d07c
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #ffffff;
   border: none;
   font-size: 24px;
   padding: 10px;

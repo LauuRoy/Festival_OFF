@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <?php $niveau = "../../"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Site web du festival Off ">
     <meta name="keywords" content="festival, Off, programmation, artistes">
     <meta name="author" content="Laurie Roy">
-    <meta charset="utf-8"><link rel="stylesheet" href="../../liaisons/css/styles.css">
+    <!-- <meta charset="utf-8"><link rel="stylesheet" href="../../liaisons/css/styles.css"> -->
     <title>Festival Off - Fiches d'artistes</title>
+	<?php include ($niveau . "liaisons/fragments/headlinks.inc.php");?>
 </head>
 
 
 <?php
 // Définition du niveau et inclusion de la configuration
-$niveau = "../../";
 include($niveau . 'liaisons/php/config.inc.php');
 ?>
-
-<a href="<?php echo $niveau;?>index.php">Retour</a>
 
 <?php
 // Récupération des événements d'artistes
@@ -150,9 +149,6 @@ $liensSociaux = [
 
 <body class="page">
 <?php include ($niveau . "liaisons/fragments/entete.inc.php");?>
-<!-- <a href="#contenu" class="screen-reader-only focusable">Allez au contenu</a> -->
-
-<a href="<?php echo $niveau;?>index.php">Retour</a>
 <main class="main" id="contenu" role="main">   
 <?php
 
@@ -175,10 +171,10 @@ $noms = $pdoResultatNom->fetch(PDO::FETCH_ASSOC);
 
 <section class="evenement__section">
     <article class="emplacements">
+
 <!-- DATE EVENEMENTS -->
 <ul class="evenements">
 <?php
-
 if (count($arrEvenements) > 0) {
     foreach ($arrEvenements as $evenement) {
         echo '<li class="evenements__informations">';
@@ -208,17 +204,24 @@ if (count($arrEvenements) > 0) {
 </p>
 </article>
 <div class="carrousel-container">
-    <div class="carrousel-images">
-        <?php
-        
-        for ($i = 0; $i <= 3; $i++) {
-            $cheminImageArtiste = $cheminImages . $strIdStyle . "_" . $i . "_W320.jpg";
-            if (file_exists($cheminImageArtiste)) {
-                echo '<img src="' . htmlspecialchars($cheminImageArtiste) . '" class="carousel-image" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="320" height="214">';
-            }
+<div class="carrousel-images"> 
+    <?php
+    for ($i = 0; $i <= 3; $i++) {
+        $cheminImagePetite = $cheminImages . $strIdStyle . "_" . $i . "_W320.jpg";
+        // $cheminImageGrande = $cheminImages . $strIdStyle . "_" . $i . "_W552.jpg"; 
+
+        if (file_exists($cheminImagePetite)) {
+            echo '<img src="' . htmlspecialchars($cheminImagePetite) . '" class="carousel-image" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="320" height="214">';
         }
-        ?>
-    </div>
+
+        // if (file_exists($cheminImageGrande)) {
+        //     echo '<img src="' . htmlspecialchars($cheminImageGrande) . '" class="carousel-image large-screen" alt="Image de l\'artiste ' . htmlspecialchars($noms['nom']) . '" width="552" height="369">';
+        // }
+    }
+    ?>
+</div>
+
+
       <!-- Boutons de navigation -->
       <button class="carrousel-btn prev" onclick="prevImage()">&#10094;</button>
     <button class="carrousel-btn next" onclick="nextImage()">&#10095;</button>
@@ -242,10 +245,11 @@ $imageArtisteNum4 = $cheminImages . $strIdStyle . "_4_W320.jpg";
 <h2 class="nom_artiste__h2"> 
     Découvrir <?php echo isset($noms['nom']) ? htmlspecialchars($noms['nom']) : "Artiste inconnu"; ?>
 </h2>
-<section class="decouvrir__reseau">
+
+
 <!-- RÉSEAUX SOCIAUX -->
+<section class="decouvrir__reseau">
 <nav class="reseaux_sociaux">
-    <!-- Réseaux sociaux : -->
     <?php 
     if (isset($liensSociaux[$strIdStyle])) {
         $liens = $liensSociaux[$strIdStyle];
@@ -256,18 +260,18 @@ $imageArtisteNum4 = $cheminImages . $strIdStyle . "_4_W320.jpg";
         } else {
             // Afficher les liens s'ils existent
             if (!empty($liens['facebook'])) {
-                echo '<a href="' . htmlspecialchars($liens['facebook']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/blanc-ic--baseline-facebook.svg" alt="Facebook" width="" height=""></a> ';
+                echo '<a href="' . htmlspecialchars($liens['facebook']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-ic--baseline-facebook.svg" alt="Facebook" width="" height=""></a> ';
             }
             
             if (!empty($liens['instagram'])) {
                 echo '<a href="' . htmlspecialchars($liens['instagram']) . '" target="_blank">
-                <img src="' . $niveau . '../public/liaisons/images/svg/blanc-mdi--instagram.svg" alt="Instagram" width="" height=""></a> ';
+                <img src="' . $niveau . './liaisons/images/svg/blanc-mdi--instagram.svg" alt="Instagram" width="" height=""></a> ';
             }
             if (!empty($liens['youtube'])) {
-                echo '<a href="' . htmlspecialchars($liens['youtube']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/blanc-mdi--youtube.svg" alt="YouTube" width="" height=""></a> ';
+                echo '<a href="' . htmlspecialchars($liens['youtube']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-mdi--youtube.svg" alt="YouTube" width="" height=""></a> ';
             }
             if (!empty($liens['spotify'])) {
-                echo '<a href="' . htmlspecialchars($liens['spotify']) . '" target="_blank"><img src="' . $niveau . '../public/liaisons/images/svg/blanc-mdi--spotify.svg" alt="Spotify" width="" height=""></a>';
+                echo '<a href="' . htmlspecialchars($liens['spotify']) . '" target="_blank"><img src="' . $niveau . './liaisons/images/svg/blanc-mdi--spotify.svg" alt="Spotify" width="" height=""></a>';
             }
         }
     }

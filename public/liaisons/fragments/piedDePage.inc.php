@@ -4,31 +4,31 @@
     <nav>
         <ul>
             <li>
-                <a href="#">LE OFF</a>
+                <a class="a__footer" href="<?php echo $niveau;?>index.php">LE OFF</a>
                 <ul>
-                    <li><a href="#">Tarifs</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a class="a__footer" href="#">Tarifs</a></li>
+                    <li><a class="a__footer" href="#">Contact</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Programmation</a>
+                <a class="a__footer" href="<?php echo $niveau;?>programmation/index.php">Programmation</a>
                 <ul>
-                    <li><a href="#">Par lieu</a></li>
-                    <li><a href="#">Par dates</a></li>
+                    <li><a class="a__footer" href="#">Par lieu</a></li>
+                    <li><a class="a__footer" href="#">Par dates</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Artistes</a>
+                <a class="a__footer" href="<?php echo $niveau;?>artistes/index.php">Artistes</a>
                 <ul>
-                    <li><a href="#">Par style musical</a></li>
-                    <li><a href="#">Artistes A-Z</a></li>
+                    <li><a class="a__footer" href="#">Par style musical</a></li>
+                    <li><a class="a__footer" href="#">Artistes A-Z</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">Partenaires</a>
+                <a class="a__footer" href="#">Partenaires</a>
                 <ul>
-                    <li><a href="#">Devenir partenaires</a></li>
-                    <li><a href="#">Partenaires actuels</a></li>
+                    <li><a class="a__footer" href="#">Devenir partenaires</a></li>
+                    <li><a class="a__footer" href="#">Partenaires actuels</a></li>
                 </ul>
             </li>
     </nav>
@@ -41,8 +41,8 @@
                        C.P. 48010<br>
                        Québec, Québec<br>
                        G1S 4X2</p>
-                       <p class="p__footer"><a href="mailto:info@quebecoff.org">info@quebecoff.org</a><br>
-                       <a href="mailto:media@quebecoff.org">media@quebecoff.org</a>
+                       <p class="p__footer"><a class="a__footer" href="mailto:info@quebecoff.org">info@quebecoff.org</a><br>
+                       <a class="a__footer" href="mailto:media@quebecoff.org">media@quebecoff.org</a>
                        </p>
                 </address>
         </div>
@@ -50,23 +50,23 @@
     <div class="medias">
         <h3 class = "h3__footer"> Nos médias sociaux </h3>
         <div class="logo__reseaux">
-            <a href="https://www.facebook.com/?locale=fr_CA">
-                <img class="sociaux__footer" src="../../public/liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook">
+            <a class="a__footer" href="https://www.facebook.com/?locale=fr_CA">
+                <img class="sociaux__footer" src="<?php echo $niveau;?>liaisons/images/svg/ic--baseline-facebook.svg" alt="Facebook">
             </a>
-            <a href="https://www.youtube.com/">
-                <img class="sociaux__footer" src="../../public/liaisons/images/svg/mdi--youtube.svg" alt="Youtube">
+            <a class="a__footer" href="https://www.youtube.com/">
+                <img class="sociaux__footer" src="<?php echo $niveau;?>liaisons/images/svg/mdi--youtube.svg" alt="Youtube">
             </a>
-            <a href="https://twitter.com/?lang=fr">
-                <img class="sociaux__footer" src="../../public/liaisons/images/svg/prime--twitter.svg" alt="Twitter">
+            <a class="a__footer" href="https://twitter.com/?lang=fr">
+                <img class="sociaux__footer" src="<?php echo $niveau;?>liaisons/images/svg/prime--twitter.svg" alt="Twitter">
             </a>
-            <a href="https://www.instagram.com/">
-                <img class="sociaux__footer" src="../public/liaisons/images/svg/mdi--instagram.svg" alt="Instagram">
+            <a class="a__footer" href="https://www.instagram.com/">
+                <img class="sociaux__footer" src="<?php echo $niveau;?>liaisons/images/svg/mdi--instagram.svg" alt="Instagram">
             </a>
         </div>
     </div>
     <div id="logo__footer">
-        <a href="#">
-        <img class="Festival__OFF_LogoFooter" src="../public/liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF" title="Festival-OFF" /></a>
+        <a class="a__footer" href="#">
+        <img class="Festival__OFF_LogoFooter" src="<?php echo $niveau;?>liaisons/images/svg/logo_OFF.svg" alt="Festival-OFF" title="Festival-OFF" /></a>
     </div>
     <h5 class="piedDePage__copyRights">© 2009-2024 Festival OFF Tous droits réservés</h5>
 </div>

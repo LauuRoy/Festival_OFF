@@ -3,10 +3,25 @@ $bleuinformationsecondaires: #0f2835;
 $couleurtextefooter: #ffffff;
 
 //COULEURS
-//Couleurs de fond du footer
+//Couleurs de fond du footer + demi-cercle
 .piedDePage {
   background-color: $bleupieddepage;
   margin-top: 70px;
+  position: relative;
+  padding-top: 100px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -55px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: $bleupieddepage;
+    border-top-left-radius: 50% 100px;
+    border-top-right-radius: 50% 100px;
+  }
 }
 
 .informations__secondaires {
@@ -23,35 +38,54 @@ a,
 
 //LIENS ET TEXTE
 // Enlever les décorations
-footer.piedDePage a {
+.a__footer {
   text-decoration: none;
-}
-footer.piedDePage > nav > ul > li > a {
-  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 //Grosseur du texte + font-family
-footer.piedDePage {
+nav {
   font-family: "Urbanist", sans-serif;
+  text-align: center;
+  padding: 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+
+    > li {
+      line-height: 35px;
+
+      &:last-child {
+        padding-bottom: 20px;
+      }
+
+      .a__footer {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+  }
 }
 
-footer.piedDePage > nav > ul > li > a {
-  font-size: 20px;
-  font-weight: 600;
-}
 
-footer.piedDePage ul > li {
-  line-height: 35px;
+ // MÉDIAS ET COPYRIGHTS
+ .medias {
+  .logo__reseaux a svg path:hover {
+    fill: #ee82a2;
+  }
 }
 
 .piedDePage__copyRights {
   font-size: 10px;
 }
 
-//effet hover
-.medias .logo__reseaux a svg path:hover {
-  fill: #ee82a2;
-}
+
 
 //POSITIONNEMENT MENU NAV
 footer.piedDePage {
@@ -74,15 +108,18 @@ footer.piedDePage nav ul {
 }
 
 //MISE EN PLACE INFORMATIONS SECONDAIRES
-.medias > .h3__footer {
-  padding-top: 15px;
-}
 .informations__secondaires {
+  background-color: $bleuinformationsecondaires;
   border-radius: 30px;
   padding: 10px;
   text-align: center;
   display: block;
+
+  .h3__footer {
+    padding-top: 15px;
+  }
 }
+
 // Coordonnées
 address > .p__footer {
   font-style: normal;
@@ -100,27 +137,6 @@ address > .p__footer {
   width: 229px;
   height: auto;
   border-top: 1px solid $couleurtextefooter;
-}
-
-// Demi cercle rectangle
-.piedDePage {
-  background-color: $bleupieddepage;
-  position: relative;
-  padding-top: 100px;
-}
-
-.piedDePage::before {
-  content: "";
-  position: absolute;
-  top: -55px;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 60px;
-  background-color: $bleupieddepage;
-  border-top-left-radius: 50% 100px;
-  border-top-right-radius: 50% 100px;
-  
 }
 
 //VERSION TABLE
@@ -167,4 +183,4 @@ address > .p__footer {
   .nous__rejoindre {
     padding-right: 20%;
   }
-}
+} 
